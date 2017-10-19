@@ -1,0 +1,230 @@
+Tervezett projekt :
+Stratégiai,logikai,kereskedõs játék
+A játék tervezett neve: ComSLogGame
+
+
+Cél: Egy stratégiai, logikai játék program megvalósítása, amelyben a játékos egy várost építhet 
+és harcolhat a játéktéren az ellenséggel.
+
+A játék célja: 
+A játékos megnyeri a játékot, ha megsemmisíti az ellenfelet vagy ha megépíti a halálcsillagot.
+Ha az utóbbi következik be elõször, akkor nyerés bejelentése után még van lehetõség halálcsillaggal lezúzni az ellenfelet.  
+Ehhez a 4.-ik tudományos szintet kell elérnie.
+
+(Minden szintlépés után a játékos fõ adatai (összegyûjtõtt pénz,haderõ,tudománypont) megmaradnak, 
+csak a grid ürül ki.)
+
+A program vázlatos felépítése:
+A program körökre (turns) van osztva. Egy nyomógomb megnyomásával negyedév telik el.
+A programot egy játékos játssza  a gép ellen egy x*y-as négyzethálós griden . 
+A program a játéktér kezelése mellett ellátja az új játék, betöltés, mentés feladatokat. 
+
+A játékos a játék során 4 tudományos szinten megy végig. Minden tudományos szinten más épületeket
+rakhat le és más mozgó egységeket  kezelhet pénzügyi helyzettõl és egyéb késõbb részletezett paraméterektõl függõen:
+
+A felhasználó a játék kezdetekor az 1. tudományos szinten van, ahol a következõ épületeket 
+rakhatja le a 
+(felsorolásszinten)
+	1.-központ
+	2.-bank
+	3.-egyetem
+	4.-kutatóintézet
+	5.-üzletház
+	6.-1-es szintû lakóház (1000 fõ)
+	7.-mezõgazdasági Feldolgozó üzem  (50% ember 50% robot)
+	8.-építõipari komplexum  (50% ember 50% robot)
+	9.-gyár és javítóüzem  (civil közlekedési eszköz) alkalmazottak: 50% ember 50% robot
+	10.-Katonai bázis  (gyalogság)
+	11.-Katonai bázis: (nehézfegyverzet)  (nehéz fegyverek, vadászgép,tank, stb...)
+	12.-Atomerõmû
+	13.-Újrahasznosító
+
+Mozgó egységek
+	Nem Harci:
+		1.Termelõk  (emberek)
+		2.Építõk (emberek)
+		3.Építõk (gépek)
+	Harci:
+		1.Gyalogság
+		2.Tankok
+		3.Vadászgépek
+		4.Harci Drónok
+		5.Rakéta
+
+
+
+2.tudományos szinten megszûnik a bank , mert beleintegrálódik a központba
+Az egyetem összeintegrálódik a kutatóintézettel
+Atomreaktor helyett Megújúló(zöld) energiareaktor lesz.
+Épületek:
+	1.központ.
+	2.Oktatási és kutatási központ
+	3.üzletház
+	4.  2-es szintû Lakóház 3000 fõ
+	5.-mezõgazdasági Feldolgozó üzem  (20% ember 80% robot)
+	6.-építõipari komplexum  (20% ember 80% robot)
+	7.-gyár és javítóüzem  (civil közlekedési eszköz) alkalmazottak: 10% ember 90% robot
+	8.-Katonai bázis  (gyalogság)
+	9.-Katonai bázis és repülõtér + javítóüzem  (nehéz fegyverek, vadászgép,tank, stb...)
+	10.-ZöldEnergia reaktor
+	11.-Újrahasznosító
+
+Mozgó egységek:
+	Nem Harci:
+		1.Termelõk  (emberek)
+		2.Építõk (emberek)
+		3.Építõk (gépek)
+	Harci:
+		1.Tankok
+		2.Vadászgépek
+		3.Harci Repülõ Drónok
+		4.Rakéta
+		5.SzoftverFejlesztõk
+
+A szoftverfejlesztõk a játékprogram jolly-joker ei. Csak 1-et tud lépni,viszont bármit megtudnak támadni
+(Akár a halálcsillagot is...)   
+Védekezni ellene csak szoftverfejlesztõkkel lehet.
+
+
+3.-ik tudományos szinten további épületek szûnnek meg
+	Épületek:
+		1.Központ	
+		2.3-as szintû lakóház  5000 Fõ
+		3.ÜzletKözpont
+		4.MI-programozó képzõ
+		5.Gyár és javítóüzem komplexum (alkalmazott:90% MI 10% ember)
+		6.Katonai bázis és Ûrhajóállomás
+		7.Fúziós energiareaktor
+		8.Újrahasznosító
+
+	nem harci 
+		1.-MI feldolgozók
+	harci:
+		1.Szárazföldi harci robotok
+		2.Repülõ harci robotok
+		3.Szoftverfejlesztõk
+
+
+4.-ik tudományos szinten már csak 6 épület van és két mozgó egység .
+	Épületek:
+		1. Központ
+		2. 4-es szintû lakóház 10000 fõ
+		3. Gyár és antianyag elõállító
+		4. Teleportáló és Csillagkapu
+		5. Bolygóközi energiareaktor 
+		6. HalálCsillag
+
+Mozgó egységek:
+	nem harci 
+		1.-MI feldolgozók
+	harci
+		1.-Szoftverfejlesztõk
+
+
+Megvalósíthatóság.
+A program megvalósíthatósága négy részbõl áll :
+
+az elsõ rész az elõbb felsorolt egységek objektumként való leimplementálása konkrét mezõikkel.
+Mindegyik objektumhoz tartozna egy kis ikonszerû kép,amit le lehet tölteni internetrõl vagy megrajzolni.
+Második rész: Menu kialakítása.Épületek ,egységek elhelyezése ,mozgatása, mozgathatósága a játéktéren (griden)  
+Harmadik rész: Hogyan változzanak az egységek paraméterei a NextTurn gombra való kattintás után.   
+Negyedik rész: Stratégia harc és az ellenfél (MI) megvalósítása
+
+A projekt Visual Studio 2013 segítségével készül C# programozási nyelven.
+A program felülete a Visual Studio 2013 Windows Foundation Presentation (WPF) környezetben készül,
+annak általános felületi eszközeit használva.
+
+
+
+A program tervezett felépítése fejlesztõi szempontból:
+
+A program struktúráját tekintve három fõ csomagból áll.
+
+1. Megjelenés.   
+
+BoardPiece (egységek)
+Board (osztály Grid)
+
+
+player class 
+	 mezõk:
+	-pénz: továbbiakban (G)
+	-lakosság: továbbiakban (L) 
+	-szennyezõdés: továbbiakban (S)
+	-energia: továbbiakban (E)
+	-tudománypont: továbbiakban (T)
+	-termelés:továbbiakban (P)  
+	-Haderõ:továbbiakban (H) egységek sebzési erejének összege
+
+	függvények:
+		-Egy függvény növelné/csökkentené (L)-t minden (TB) megnyomásakor.
+
+összelehet vonni az egységeket.
+
+
+MozgóEgységek õsosztály
+	-élet/pajzs 
+	-mozgás nagysága
+	-építési költség 1x-er vonódik le a (G)-bõl
+	-amortizációs költség: Minden TB megnyomásakor (G)-1
+
+harci egységek gyermekosztály
+	-sebzési erõ
+mozgó nem harci egységek gyermekosztály 
+	-építési gyorsaság
+
+
+Épület õsosztály
+	-építési költség:  1x-er vonódik le a (G)-bõl
+	-amortizációs költség:  Minden TB megnyomásakor (G)-1
+	-szennyezõdés: Minden TB megnyomásakor (S)+1
+	-energia : Minden TB megnyomásakor (E)-1
+Épület gyermekosztályok:
+
+-központ
+
+-bank
+  pénz kereskedés
+-egyetem
+ (T) +1 
+MI programozó képzõ
+(T)+1
+-kutatóintézet
+ (T)+1
+-üzletház
+(G)+1 kereskedéstõl függõen
+-1-es szintû lakóház  1000 fõ
+-2-es szintû lakóház  3000 fõ
+-3-as szintû lakóház  6000 fõ
+-4-es szintû lakóház 10000 fõ
+-mezõgazdasági Feldolgozó üzem
+(P)+1
+-építõipari komplexum  
+
+-gyár és javítóüzem  (civil közlekedési eszköz)
+(P)+1
+-Katonai bázis  (gyalogság)
+
+-Katonai bázis és repülõtér + javítóüzem  (nehéz fegyverek, vadászgép,tank, stb...)
+
+.-Atomerõmû
+(E)+10
+-Nap Reaktor
+(E)+10
+-Fúziós reaktor
+(E)+100
+.-Bolygóközi energiareaktor
+(E)+100000 
+-Újrahasznosító
+(S)-10
+-Csillagkapu 1
+
+NextTurn gomb 
+
+2. Események
+
+3.
+
+...
+folyt köv
+ 
