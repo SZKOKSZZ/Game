@@ -1,0 +1,161 @@
+1) MEGNEVEZÉS: 
+Körökre osztott stratégiai játék
+
+2) FEJLESZTŐI KÖRNYEZET: 
+A projekt Visual Studio 2013 segítségével készül C# programozási nyelven. A program felülete a Visual Studio 2013 
+Windows Foundation Presentation (WPF) környezetben készül, annak általános eszközeit használva.
+
+3) RÖVID LEÍRÁS: 
+a cél egy stratégiai, logikai játékprogram megalkotása, amelyben a játékosnak két lehetősége adódik a győzelemre: 
+- technikai győzelem: a játékos városának fejlesztésével eljut a legmagasabb fejlettségi szintre, megépít egy "végső ütőkártyát", melyel
+győzelemre viszi egységeit (technikai győzelem után van lehetőség folytani az ellenfél elpusztítását)
+- katonai győzelem: az ellenség egységeinek teljes megsemmisítése
+
+4) FUNKCIONÁLIS KÖVETELMÉNYEK:
+- a programot egy játékos játssza a gép ellen egy x*y-as négyzethálós griden
+- a játékos féltucatnyi "nyersanyag"-pontból gazdálkodhat, melyek körönkét folyamatosan változhatnak
+- a program a játéktér kezelése mellett ellátja az új játék, betöltés, mentés feladatokat. 
+- a játékmenet körökre (turns) van osztva, a következő körbe pedig egy nyomógomb használatával léphet a játékos, minden körváltáskor 
+negyed év telik el 
+- új egységek, épületek eléréséhez a játékosnak végig kell mennie bizonyos fejlettségi szinteken. Szintlépés után a játékos fő adatai 
+(összegyűjtőtt pénz, haderő, tudománypont) megmaradnak csak a grid ürül ki.
+
+MEGVALÓSÍTHATÓSÁG (4 rész): 
+I) az első rész az előbb felsorolt egységek objektumként való leimplementálása konkrét mezőikkel. Mindegyik objektumhoz tartozna egy 
+kis ikonszerű kép, amit le lehet tölteni internetről vagy megrajzolni.
+II) második rész: Menü kialakítása. Textúra: epületek, egységek elhelyezése, mozgatása, mozgathatósága a játéktéren (griden)  
+III) harmadik rész: Hogyan változzanak az egységek paraméterei a "Next Turn" gombra való kattintás után   
+IV) negyedik rész: Harcmenet és az ellenfél mesterséges intelligienciájának megvalósítása
+
+5) RENDSZERTERV:
+Mint fentebb említésre került, a játékos a játék során 4 tudományos szinten menne végig. Ezen elképzelés a későbbiekben még átdolgozásra
+kerülhet, de az elképzelés az, hogy minden tudományos szinten más épületeket rakhatna le a játékos, és más mozgó egységeket kezelhet 
+pénzügyi helyzettől és egyéb paraméterektől függően.
+
+--- A felhasználó a játék kezdetekor az 1. tudományos szinten van, ahol a következő épületeket rakhatja le:
+	1.-központ
+	2.-bank
+	3.-egyetem
+	4.-kutatóintézet
+	5.-üzletház
+	6.-1-es szintű lakóház (1000 fő)
+	7.-mezőgazdasági feldolgozó üzem (50% ember 50% robot)
+	8.-építőipari komplexum  (50% ember 50% robot)
+	9.-gyár és javítóüzem  (civil közlekedési eszköz) alkalmazottak: 50% ember 50% robot
+	10.-Katonai bázis (gyalogság)
+	11.-Katonai bázis (nehézfegyverzet) (nehéz fegyverek, vadászgép,tank, stb...)
+	12.-Atomerőmű
+	13.-Újrahasznosító
+
+Mozgó egységek
+	Nem Harci:
+		1.Termelők  (emberek)
+		2.Építők (emberek)
+		3.Építők (gépek)
+	Harci:
+		1.Gyalogság
+		2.Tankok
+		3.Vadászgépek
+		4.Harci Drónok
+		5.Rakéta
+
+--- 2.tudományos szinten megszűnik a bank , mert beleintegrálódik a központba, az egyetem integrálódik a kutatóintézettel, atomreaktor
+helyett Megújúló energiareaktor lesz.
+
+Épületek:
+	1.-központ.
+	2.-Oktatási és kutatási központ
+	3.-üzletház
+	4.-2-es szintű Lakóház 3000 fő
+	5.-mezőgazdasági Feldolgozó üzem  (20% ember 80% robot)
+	6.-építőipari komplexum  (20% ember 80% robot)
+	7.-gyár és javítóüzem  (civil közlekedési eszköz) alkalmazottak: 10% ember 90% robot
+	8.-Katonai bázis  (gyalogság)
+	9.-Katonai bázis és repülőtér + javítóüzem  (nehéz fegyverek, vadászgép,tank, stb...)
+	10.-ZöldEnergia reaktor
+	11.-Újrahasznosító
+
+Mozgó egységek:
+	Nem Harci:
+		1.Termelők  (emberek)
+		2.Építők (emberek)
+		3.Építők (gépek)
+	Harci:
+		1.Tankok
+		2.Vadászgépek
+		3.Harci Repülő Drónok
+		4.Rakéta
+		5.SzoftverFejlesztők
+
+A szoftverfejlesztők a játékprogram jolly-joker-ei. Csak 1-et tudnak lépni,viszont bármit megtudnak támadni, védekezni csak a
+saját fajtájuk tud ellenük.
+
+--- 3.-ik tudományos szinten további épületek szűnnek meg
+	
+ Épületek:
+		1.-Központ	
+		2.-3-as szintű lakóház (5000 Fő)
+		3.-ÜzletKözpont
+		4.-MI-programozó képző
+		5.-Gyár és javítóüzem komplexum (alkalmazott: 90% MI, 10% ember)
+		6.-Katonai bázis és Űrhajóállomás
+		7.-Fúziós energiareaktor
+		8.-Újrahasznosító
+
+Mozgó egységek:
+	nem harci 
+		1.-MI feldolgozók
+	harci:
+		1.Szárazföldi harci robotok
+		2.Repülő harci robotok
+		3.Szoftverfejlesztők
+
+--- 4.-ik tudományos szinten már csak 6 épület van és két mozgó egység .
+Épületek:
+		1.-Központ
+		2.-4-es szintű lakóház (10000 fő)
+		3.-Gyár és antianyag előállító
+		4.-Teleportáló és Csillagkapu
+		5.-Bolygóközi energiareaktor 
+		6.-HalálCsillag
+
+Mozgó egységek:
+	nem harci 
+		1.-MI feldolgozók
+	harci
+		1.-Szoftverfejlesztők
+-----------------------------------------------------------
+
+OSZTÁLYTERV:
+A program felülete Windows Foundation Presentation (WPF) környezetben készül, egy x*y-as négyzethálós griden
+- BoardPiece osztály: egységek példányosítása
+- Board: osztály Grid (x*y négyzethálós felület)
+- Player osztály: a játékos "nyersanyagait" összefoglaló osztály, melyekből gazdálkodhat
+a, mezők (zárójelben a továbbiakban használt jelölésük):
+	-pénz (G), lakosság (L), energia (E), tudománypont (T), termelés (P), szennyeződés (S), haderő (H)
+b, függvény: 	függvények:
+	-Egy függvény növelné/csökkentené (L)-t minden (TB) megnyomásakor. (?)
+- MozgóEgységek: ősosztály
+mezők: 	-élet/pajzs, mozgás nagyság, kiképzési költség 1x vonódik le a (G)-ből, amortizációs költség: Minden TB megnyomásakor (G)-1
+Az azonos fajtájú egységeket össze lehet majd vonni (pl. 6 és 4 egység tank egyesítést követően 10 egységként egyszerre mozgatható)
+-- Harci egységek: a MozgóEgységek ősosztály gyermekosztálya
+	mező: sebzési erő
+-- Nem harci egységek: MozgóEgységek ősosztály gyermekosztálya
+	mező: produktivitás / építési gyorsaság
+- Épület ősosztály
+mezők: 
+ -építési költség:  1x vonódik le a (G)-ből
+ -amortizációs költség:  Minden TB megnyomásakor (G)-1, az épületek értelemszerűen lepusztulnak
+ -szennyeződés: Minden TB megnyomásakor (S)+1
+ -energia : Minden TB megnyomásakor (E)-1
+-- Épület gyermekosztályok: ("nyersanyag"-kategóriánként csoportba rendezve)
+ -> Központ, Bank, Üzletház (pénzzel történ kereskedéshez)
+ -> Egyetem, Kutatóintézet valamint MI-Programozóképző (tudománypont körönként egységnyi növelésére) 
+ -> Lakóházak (fejlettségi szinttől függően növekedő kapacitással) 
+ -> Mezőgazdasági üzem, Építőipari komplexum, Gyár és javítóüzem  (civil közlekedési eszköz javítására) 
+(termelés körönkénti egységnyi növelésére)
+ -> Katonai bázis  (gyalogság kiképzésére), Katonai bázis és repülőtér (nehéz fegyverek, vadászgép,tank, egységjavítás)
+ -> Atomerőmű és Nap Reaktor (+10E), Fúziós reaktor (+100E), Bolygóközi energiareaktor (+100000E), 
+ -> Újrahasznosító (10 egységgel csökkenti a szennyeződést)
+ 
+ ESEMÉNYEK: folyt. köv.
