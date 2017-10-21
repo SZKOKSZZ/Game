@@ -1,0 +1,39 @@
+Alapmechanika: Mik az interaktív funkciók?
+	-egységek kijelölése
+	-egységek mozgatás, összevonása, szétszedése
+	-látótér mozgatása
+
+	
+Következő kör: Mik történjenek a gombra kattintva?
+	-player függvények lefutnak minden oldalról (pénz, népesség stb.)
+	-ellenfél lépéseinek szimulálása
+	-végül felugrik egy ablak ami összegzi a történteket
+	
+	
+Harc: Mikor (pl. mire kattintva) és hogyan valósuljon meg?
+	-mozgatáskor:
+		közelharci: a mezőre való lépéskor
+		távolsági: 
+	
+	
+Adatbázis: Miket és hogyan tároljon?
+	-Egységek (id, típus, életerő, sebzés, lépésszám)
+	-Épületek (id, ...)
+
+	
+Fejlődés/szintlépés: Miként?
+	
+
+"Player" osztály: Mik legyenek a játékos jellemzői? Itt úgy kell gondolkodni, hogy az ellenfél is egy játékos.
+	-értékek plusz a hozzá tartozó függvények (pl. lakosság - függvény ami körönként változtatja)
+	
+	
+"Stat" osztály: Mikor kell rá "figyelni" és miket tárol.
+	-harcnál -> elpusztított és elvesztett egységek
+	-következő körnél -> a "Player" osztály függvényeiben lesznek benne 
+
+
+
+Megjegyzések:
+A "Show Statistics" gombra kattintva vagy a játék végén egy egyszerű grafikon készül a Stat osztályból (új ablak).
+Az Adatbázis lehet egy sima text file (akkor viszont fontos a mezők sorrendje).
