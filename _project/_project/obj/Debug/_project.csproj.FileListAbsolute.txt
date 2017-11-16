@@ -1,0 +1,14 @@
+c:\users\cris\documents\visual studio 2013\Projects\_project\_project\bin\Debug\_project.exe.config
+c:\users\cris\documents\visual studio 2013\Projects\_project\_project\obj\Debug\_project.csprojResolveAssemblyReference.cache
+c:\users\cris\documents\visual studio 2013\Projects\_project\_project\obj\Debug\MainWindow.baml
+c:\users\cris\documents\visual studio 2013\Projects\_project\_project\obj\Debug\MainWindow.g.cs
+c:\users\cris\documents\visual studio 2013\Projects\_project\_project\obj\Debug\App.g.cs
+c:\users\cris\documents\visual studio 2013\Projects\_project\_project\obj\Debug\_project_MarkupCompile.cache
+c:\users\cris\documents\visual studio 2013\Projects\_project\_project\obj\Debug\_project.g.resources
+c:\users\cris\documents\visual studio 2013\Projects\_project\_project\obj\Debug\_project.Properties.Resources.resources
+c:\users\cris\documents\visual studio 2013\Projects\_project\_project\obj\Debug\_project.csproj.GenerateResource.Cache
+c:\users\cris\documents\visual studio 2013\Projects\_project\_project\bin\Debug\_project.exe
+c:\users\cris\documents\visual studio 2013\Projects\_project\_project\bin\Debug\_project.pdb
+c:\users\cris\documents\visual studio 2013\Projects\_project\_project\obj\Debug\App.baml
+c:\users\cris\documents\visual studio 2013\Projects\_project\_project\obj\Debug\_project.exe
+c:\users\cris\documents\visual studio 2013\Projects\_project\_project\obj\Debug\_project.pdb
