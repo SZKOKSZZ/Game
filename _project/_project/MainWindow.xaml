@@ -1,0 +1,44 @@
+﻿<Window x:Class="_project.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="MainWindow" Height="350" Width="525" Background="DimGray" Foreground="White">
+    <Grid x:Name="grd_Main">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Grid>
+            <!--<Grid.RowDefinitions>
+                <RowDefinition Height="20"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="20"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="20"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="20"/>
+            </Grid.ColumnDefinitions>-->
+
+            <!--
+            <Button x:Name="btn_up" MouseMove="btn_MouseMove" Grid.ColumnSpan="3" Content="0,-1" Height="30" VerticalAlignment="Top" Opacity="0" Panel.ZIndex="1"/>
+            <Button x:Name="btn_down" MouseMove="btn_MouseMove" Grid.Row="2" Grid.ColumnSpan="3" Content="0,1" Height="30" VerticalAlignment="Bottom" Opacity="0" Panel.ZIndex="1"/>
+            <Button x:Name="btn_left" MouseMove="btn_MouseMove" Grid.ColumnSpan="3" Content="-1,0" Width="30" HorizontalAlignment="Left" Opacity="0" Panel.ZIndex="1"/>
+            <Button x:Name="btn_right" MouseMove="btn_MouseMove" Grid.Row="2" Grid.ColumnSpan="8" Content="1,0" Width="30" HorizontalAlignment="Right" Opacity="0" Panel.ZIndex="1"/>
+            -->
+            <ScrollViewer x:Name="field" Grid.Column="1" Grid.Row="1" HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Hidden"/>
+        </Grid>
+
+        <Border Grid.Row="2" BorderThickness="0,1,0,0" BorderBrush="DarkGray">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="80"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Button x:Name="btn_nextRound" Content="Next Round" Click="btn_nextRound_Click"/>
+                <TextBlock x:Name="txt_stats" Grid.Column="1" x:FieldModifier="public" HorizontalAlignment="Right" Margin="0,0,6,0"/>
+            </Grid>
+        </Border>
+    </Grid>
+</Window>
+
