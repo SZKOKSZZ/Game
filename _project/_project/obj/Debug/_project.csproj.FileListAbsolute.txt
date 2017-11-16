@@ -12,3 +12,6 @@ c:\users\cris\documents\visual studio 2013\Projects\_project\_project\bin\Debug\
 c:\users\cris\documents\visual studio 2013\Projects\_project\_project\obj\Debug\App.baml
 c:\users\cris\documents\visual studio 2013\Projects\_project\_project\obj\Debug\_project.exe
 c:\users\cris\documents\visual studio 2013\Projects\_project\_project\obj\Debug\_project.pdb
+C:\Users\Cris\Documents\GitHub\Game\_project\_project\bin\Debug\_project.exe.config
+C:\Users\Cris\Documents\GitHub\Game\_project\_project\obj\Debug\_project.exe
+C:\Users\Cris\Documents\GitHub\Game\_project\_project\obj\Debug\_project.pdb

@@ -281,16 +281,6 @@ namespace _project
                 item.Height = new GridLength(GridSize, GridUnitType.Pixel);
             }
 
-
-            /*var element = sender as UIElement;
-            var position = e.GetPosition(element);
-            var transform = element.RenderTransform as MatrixTransform;
-            var matrix = transform.Matrix;
-            var scale = e.Delta >= 0 ? 1.1 : (1.0 / 1.1);
-
-            matrix.ScaleAtPrepend(scale, scale, position.X, position.Y);
-            element.RenderTransform = new MatrixTransform(matrix);*/
-
             //-----------------------NEED SOME SWAG-----------------------
             z -= GridSize;
             
