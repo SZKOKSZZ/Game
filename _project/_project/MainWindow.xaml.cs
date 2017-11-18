@@ -25,8 +25,9 @@ namespace _project
         {
             InitializeComponent();
             Global.Grid = grd_Main;
-            Global.Board = new Board(field, 40, 40);
+            Global.Board = new Board(field, 140, 140);
             Global.StatusBar = txt_stats;
+            Global.Window = this;
 
             Player human = new Player(Brushes.LightSkyBlue); human.setMoney(1000);
             Player cpu = new Player(Brushes.GreenYellow);
@@ -35,7 +36,7 @@ namespace _project
             Unit u;
             u = new Unit(human, 0, 10); u.setPosition(5, 2);
             u = new Unit(human, 0, 10); u.setPosition(4, 4);
-            u = new Unit(cpu, 0, 12); u.setPosition(8, 6);
+            u = new Unit(cpu, 0, 12); u.setPosition(80, 80);
 
             u = new Unit(cpu2, 0, 3); u.setPosition(12, 3);
 
@@ -69,6 +70,7 @@ namespace _project
         public static List<Player> Players = new List<Player>();
         public static Grid Grid;
         public static TextBlock StatusBar;
+        public static Window Window;
     }
 
     public class BoardPiece
@@ -268,8 +270,12 @@ namespace _project
 
         void zoomHandler(object sender, MouseWheelEventArgs e)
         {
-            int z = GridSize;
+            double z = GridSize;
+            double ox = Field.HorizontalOffset + (Global.Window.ActualWidth/2);
+            double oy = Field.VerticalOffset + (Global.Window.ActualHeight/2);
+            
             e.Handled = true;
+
             GridSize += (byte)(Math.Sign(e.Delta) * 10);
             GridSize = (byte)(Math.Min(Math.Max((int)GridSize, 10), 80));
             foreach (var item in (Field.Content as Grid).ColumnDefinitions)
@@ -281,23 +287,9 @@ namespace _project
                 item.Height = new GridLength(GridSize, GridUnitType.Pixel);
             }
 
-
-            /*var element = sender as UIElement;
-            var position = e.GetPosition(element);
-            var transform = element.RenderTransform as MatrixTransform;
-            var matrix = transform.Matrix;
-            var scale = e.Delta >= 0 ? 1.1 : (1.0 / 1.1);
-
-            matrix.ScaleAtPrepend(scale, scale, position.X, position.Y);
-            element.RenderTransform = new MatrixTransform(matrix);*/
-
-            //-----------------------NEED SOME SWAG-----------------------
-            z -= GridSize;
-            
-
-            //Field.ScrollToVerticalOffset(Field.VerticalOffset - z*(Field.Content as Grid).RowDefinitions.Count);
-            //Field.ScrollToHorizontalOffset(Field.HorizontalOffset - z * (Field.Content as Grid).ColumnDefinitions.Count);
-
+            z = GridSize / z;
+            Field.ScrollToHorizontalOffset(ox * z - (Global.Window.ActualWidth / 2));
+            Field.ScrollToVerticalOffset(oy * z - (Global.Window.ActualHeight / 2));
         }
         void dragTriggerDown(object sender, MouseButtonEventArgs e)
         {
