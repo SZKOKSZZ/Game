@@ -24,24 +24,8 @@ namespace _project
         public MainWindow()
         {
             InitializeComponent();
-            Global.Grid = grd_Main;
-            Global.Board = new Board(field, 140, 140);
-            Global.StatusBar = txt_stats;
-            Global.Window = this;
-
-            Player human = new Player(Brushes.LightSkyBlue); human.setMoney(1000);
-            Player cpu = new Player(Brushes.GreenYellow);
-            Player cpu2 = new Player(Brushes.Plum);
-
-            Unit u;
-            u = new Unit(human, 0, 10); u.setPosition(5, 2);
-            u = new Unit(human, 0, 10); u.setPosition(4, 4);
-            u = new Unit(cpu, 0, 12); u.setPosition(80, 80);
-
-            u = new Unit(cpu2, 0, 3); u.setPosition(12, 3);
-
-            Building b;
-            b = new Building(human, 0); b.setPosition(7, 2);
+            globalizing();
+            initalizing();
         }
 
         /*private void btn_MouseMove(object sender, MouseEventArgs e)
@@ -51,6 +35,30 @@ namespace _project
             field.ScrollToVerticalOffset(field.VerticalOffset + yval * 5);
             field.ScrollToHorizontalOffset(field.HorizontalOffset + xval * 5);
         }*/
+        private void globalizing()
+        {
+            Global.Grid = grd_Main;
+            Global.Board = new Board(field, 140, 140);
+            Global.StatusBar = txt_stats;
+            Global.Window = this;
+        }
+
+        private void initalizing()
+        {
+            Player human = new Player(Brushes.LightSkyBlue); human.setMoney(1000);
+            Player cpu = new Player(Brushes.GreenYellow);
+            Player cpu2 = new Player(Brushes.Plum);
+
+            Unit u;
+            u = new Unit(human, 0, 10); u.setPosition(5, 2);
+            u = new Unit(human, 0, 10); u.setPosition(4, 4);
+            u = new Unit(cpu, 0, 12); u.setPosition(8, 4);
+
+            u = new Unit(cpu2, 0, 3); u.setPosition(12, 3);
+
+            Building b;
+            b = new Building(human, 0); b.setPosition(7, 2);
+        }
 
         private void btn_nextRound_Click(object sender, RoutedEventArgs e)
         {
