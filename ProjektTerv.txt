@@ -26,19 +26,21 @@ rakhat le és más mozgó egységeket  kezelhet pénzügyi helyzettől és egyé
 A felhasználó a játék kezdetekor az 1. tudományos szinten van, ahol a következő épületeket 
 rakhatja le a 
 (felsorolásszinten)
-	1.-központ
-	2.-bank
-	3.-egyetem
-	4.-kutatóintézet
-	5.-üzletház
-	6.-1-es szintű lakóház (1000 fő)
-	7.-mezőgazdasági Feldolgozó üzem  (50% ember 50% robot)
-	8.-építőipari komplexum  (50% ember 50% robot)
-	9.-gyár és javítóüzem  (civil közlekedési eszköz) alkalmazottak: 50% ember 50% robot
-	10.-Katonai bázis  (gyalogság)
-	11.-Katonai bázis: (nehézfegyverzet)  (nehéz fegyverek, vadászgép,tank, stb...)
-	12.-Atomerőmű
-	13.-Újrahasznosító
+	1. központ
+	2. 1-es szintű lakóház (1000 fő)
+	3. Katonai bázis 
+	4. Energia Reaktor (Atomerőmű)
+	5. Újrahasznosító	
+	6.-Gyár és javítóüzem  (civil közlekedési eszköz) alkalmazottak: 50% ember 50% robot	
+	7.-Kereskedelmi központ
+	8.-Egyetem
+	9.-Kutatóintézet
+	
+	10.-Mezőgazdasági Feldolgozó üzem  (50% ember 50% robot)
+	11.-Építőipari komplexum  (50% ember 50% robot)
+
+	
+
 
 Mozgó egységek
 	Nem Harci:
@@ -54,21 +56,22 @@ Mozgó egységek
 
 
 
-2.tudományos szinten megszűnik a bank , mert beleintegrálódik a központba
-Az egyetem összeintegrálódik a kutatóintézettel
+2.tudományos szinten 
 Atomreaktor helyett Megújúló(zöld) energiareaktor lesz.
 Épületek:
-	1.központ.
-	2.Oktatási és kutatási központ
-	3.üzletház
-	4.  2-es szintű Lakóház 3000 fő
-	5.-mezőgazdasági Feldolgozó üzem  (20% ember 80% robot)
-	6.-építőipari komplexum  (20% ember 80% robot)
-	7.-gyár és javítóüzem  (civil közlekedési eszköz) alkalmazottak: 10% ember 90% robot
-	8.-Katonai bázis  (gyalogság)
-	9.-Katonai bázis és repülőtér + javítóüzem  (nehéz fegyverek, vadászgép,tank, stb...)
-	10.-ZöldEnergia reaktor
-	11.-Újrahasznosító
+	1. központ.
+	2. 2-es szintű Lakóház 3000 fő
+	3. Katonai bázis 
+	4. Energiareaktor
+	5. Újrahasznosító	
+	6. gyár és javítóüzem  (civil közlekedési eszköz) alkalmazottak: 10% ember 90% robot	
+	7. Kereskedelmi központ	
+	8. Egyetem
+	9. Kutatóintézet
+	
+	10. -mezőgazdasági Feldolgozó üzem  (20% ember 80% robot)
+	11. -építőipari komplexum  (20% ember 80% robot)
+	
 
 Mozgó egységek:
 	Nem Harci:
@@ -87,16 +90,23 @@ A szoftverfejlesztők a játékprogram jolly-joker ei. Csak 1-et tud lépni,visz
 Védekezni ellene csak szoftverfejlesztőkkel lehet.
 
 
-3.-ik tudományos szinten további épületek szűnnek meg
+3.-ik tudományos szint:
 	Épületek:
 		1.Központ	
 		2.3-as szintű lakóház  5000 Fő
-		3.ÜzletKözpont
-		4.MI-programozó képző
-		5.Gyár és javítóüzem komplexum (alkalmazott:90% MI 10% ember)
-		6.Katonai bázis és Űrhajóállomás
-		7.Fúziós energiareaktor
-		8.Újrahasznosító
+		3.Katonai bázis és Űrhajóállomás
+		4.Energiareaktor  Fúziós
+		5.Újrahasznosító
+		
+		6. Gyár és javítóüzem komplexum (alkalmazott:90% MI 10% ember)
+		7. Kereskedelmi központ		
+		8. Egyetem   (név: MI-programozó képző)
+		9. Kutatóintézet
+	
+		10. -mezőgazdasági Feldolgozó üzem  (100% robot)
+	        11. -építőipari komplexum  (100% robot)
+				
+		
 
 	nem harci 
 		1.-MI feldolgozók
@@ -106,14 +116,19 @@ Védekezni ellene csak szoftverfejlesztőkkel lehet.
 		3.Szoftverfejlesztők
 
 
-4.-ik tudományos szinten már csak 6 épület van és két mozgó egység .
+4.-ik tudományos szint:
 	Épületek:
 		1. Központ
 		2. 4-es szintű lakóház 10000 fő
-		3. Gyár és antianyag előállító
-		4. Teleportáló és Csillagkapu
-		5. Bolygóközi energiareaktor 
-		6. HalálCsillag
+		3. Katonai bázis és Űrhajóállomás
+		4. Bolygóközi energiareaktor 
+		5. Újrahasznosító
+		6. Gyár és javítóüzem antianyag előállító
+		7. Kereskedelmi központ  (Bolygóközi kereskedelem)
+ 		8. Egyetem   (név: MI-programozó képző)
+		9. Kutatóintézet (Csillagkapu)	
+		10. mezőgazdasági Feldolgozó üzem   "Nyersanyagelőállító"
+		11. HalálCsillag  
 
 Mozgó egységek:
 	nem harci 
