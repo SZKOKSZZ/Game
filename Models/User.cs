@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Media;
 
 namespace gameproject.Models
 {
@@ -15,6 +16,8 @@ namespace gameproject.Models
         public int Science { get; set; }
         public int Production { get; set; }
         public int ArmyPower { get; set; }
+        public SolidColorBrush UserColor { get; set; }
+          
 
     }
 }
