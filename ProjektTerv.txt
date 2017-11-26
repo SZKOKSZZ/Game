@@ -36,7 +36,7 @@ rakhatja le a
 	8.-Egyetem
 	9.-Kutatóintézet
 	
-	10.-Mezőgazdasági Feldolgozó üzem  (50% ember 50% robot)
+	10.-Feldolgozó üzem  (50% ember 50% robot)
 	11.-Építőipari komplexum  (50% ember 50% robot)
 
 	
@@ -69,7 +69,7 @@ Atomreaktor helyett Megújúló(zöld) energiareaktor lesz.
 	8. Egyetem
 	9. Kutatóintézet
 	
-	10. -mezőgazdasági Feldolgozó üzem  (20% ember 80% robot)
+	10. -Feldolgozó üzem  (20% ember 80% robot)
 	11. -építőipari komplexum  (20% ember 80% robot)
 	
 
@@ -103,7 +103,7 @@ Védekezni ellene csak szoftverfejlesztőkkel lehet.
 		8. Egyetem   (név: MI-programozó képző)
 		9. Kutatóintézet
 	
-		10. -mezőgazdasági Feldolgozó üzem  (100% robot)
+		10. Feldolgozó üzem  (100% robot)
 	        11. -építőipari komplexum  (100% robot)
 				
 		
@@ -127,7 +127,7 @@ Védekezni ellene csak szoftverfejlesztőkkel lehet.
 		7. Kereskedelmi központ  (Bolygóközi kereskedelem)
  		8. Egyetem   (név: MI-programozó képző)
 		9. Kutatóintézet (Csillagkapu)	
-		10. mezőgazdasági Feldolgozó üzem   "Nyersanyagelőállító"
+		10. Feldolgozó üzem   "Nyersanyagelőállító"
 		11. HalálCsillag  
 
 Mozgó egységek:
