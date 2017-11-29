@@ -1,230 +1,246 @@
 Tervezett projekt :
-Stratégiai,logikai,kereskedõs játék
-A játék tervezett neve: ComSLogGame
+StratÃ©giai,logikai,kereskedÅ‘s jÃ¡tÃ©k
+
+A jÃ¡tÃ©k tervezett neve: ComSLogGame
 
 
-Cél: Egy stratégiai, logikai játék program megvalósítása, amelyben a játékos egy várost építhet 
-és harcolhat a játéktéren az ellenséggel.
+CÃ©l: Egy stratÃ©giai, logikai jÃ¡tÃ©k program megvalÃ³sÃ­tÃ¡sa, amelyben a jÃ¡tÃ©kos egy vÃ¡rost Ã©pÃ­thet 
+Ã©s harcolhat a jÃ¡tÃ©ktÃ©ren az ellensÃ©ggel.
 
-A játék célja: 
-A játékos megnyeri a játékot, ha megsemmisíti az ellenfelet vagy ha megépíti a halálcsillagot.
-Ha az utóbbi következik be elõször, akkor nyerés bejelentése után még van lehetõség halálcsillaggal lezúzni az ellenfelet.  
-Ehhez a 4.-ik tudományos szintet kell elérnie.
+A jÃ¡tÃ©k cÃ©lja: 
+A jÃ¡tÃ©kos megnyeri a jÃ¡tÃ©kot, ha megsemmisÃ­ti az ellenfelet vagy ha megÃ©pÃ­ti a halÃ¡lcsillagot.
+Ha az utÃ³bbi kÃ¶vetkezik be elÅ‘szÃ¶r, akkor nyerÃ©s bejelentÃ©se utÃ¡n mÃ©g van lehetÅ‘sÃ©g halÃ¡lcsillaggal lezÃºzni az ellenfelet.  
+Ehhez a 4.-ik tudomÃ¡nyos szintet kell elÃ©rnie.
 
-(Minden szintlépés után a játékos fõ adatai (összegyûjtõtt pénz,haderõ,tudománypont) megmaradnak, 
-csak a grid ürül ki.)
+(Minden szintlÃ©pÃ©s utÃ¡n a jÃ¡tÃ©kos fÅ‘ adatai (Ã¶sszegyÅ±jtÅ‘tt pÃ©nz,haderÅ‘,tudomÃ¡nypont) megmaradnak, 
+csak a grid Ã¼rÃ¼l ki.)
 
-A program vázlatos felépítése:
-A program körökre (turns) van osztva. Egy nyomógomb megnyomásával negyedév telik el.
-A programot egy játékos játssza  a gép ellen egy x*y-as négyzethálós griden . 
-A program a játéktér kezelése mellett ellátja az új játék, betöltés, mentés feladatokat. 
+A program vÃ¡zlatos felÃ©pÃ­tÃ©se:
+A program kÃ¶rÃ¶kre (turns) van osztva. Egy nyomÃ³gomb megnyomÃ¡sÃ¡val negyedÃ©v telik el.
+A programot egy jÃ¡tÃ©kos jÃ¡tssza  a gÃ©p ellen egy x*y-as nÃ©gyzethÃ¡lÃ³s griden . 
+A program a jÃ¡tÃ©ktÃ©r kezelÃ©se mellett ellÃ¡tja az Ãºj jÃ¡tÃ©k, betÃ¶ltÃ©s, mentÃ©s feladatokat. 
 
-A játékos a játék során 4 tudományos szinten megy végig. Minden tudományos szinten más épületeket
-rakhat le és más mozgó egységeket  kezelhet pénzügyi helyzettõl és egyéb késõbb részletezett paraméterektõl függõen:
+A jÃ¡tÃ©kos a jÃ¡tÃ©k sorÃ¡n 4 tudomÃ¡nyos szinten megy vÃ©gig. Minden tudomÃ¡nyos szinten mÃ¡s Ã©pÃ¼leteket
+rakhat le Ã©s mÃ¡s mozgÃ³ egysÃ©geket  kezelhet pÃ©nzÃ¼gyi helyzettÅ‘l Ã©s egyÃ©b kÃ©sÅ‘bb rÃ©szletezett paramÃ©terektÅ‘l fÃ¼ggÅ‘en:
 
-A felhasználó a játék kezdetekor az 1. tudományos szinten van, ahol a következõ épületeket 
+A felhasznÃ¡lÃ³ a jÃ¡tÃ©k kezdetekor az 1. tudomÃ¡nyos szinten van, ahol a kÃ¶vetkezÅ‘ Ã©pÃ¼leteket 
 rakhatja le a 
-(felsorolásszinten)
-	1.-központ
-	2.-bank
-	3.-egyetem
-	4.-kutatóintézet
-	5.-üzletház
-	6.-1-es szintû lakóház (1000 fõ)
-	7.-mezõgazdasági Feldolgozó üzem  (50% ember 50% robot)
-	8.-építõipari komplexum  (50% ember 50% robot)
-	9.-gyár és javítóüzem  (civil közlekedési eszköz) alkalmazottak: 50% ember 50% robot
-	10.-Katonai bázis  (gyalogság)
-	11.-Katonai bázis: (nehézfegyverzet)  (nehéz fegyverek, vadászgép,tank, stb...)
-	12.-Atomerõmû
-	13.-Újrahasznosító
+(felsorolÃ¡sszinten)
+	1. kÃ¶zpont
+	2. 1-es szintÅ± lakÃ³hÃ¡z (1000 fÅ‘)
+	3. Katonai bÃ¡zis 
+	4. Energia Reaktor (AtomerÅ‘mÅ±)
+	5. ÃšjrahasznosÃ­tÃ³	
+	6.-GyÃ¡r Ã©s javÃ­tÃ³Ã¼zem  (civil kÃ¶zlekedÃ©si eszkÃ¶z) alkalmazottak: 50% ember 50% robot	
+	7.-Kereskedelmi kÃ¶zpont
+	8.-Egyetem
+	9.-KutatÃ³intÃ©zet
+	
+	10.-FeldolgozÃ³ Ã¼zem  (50% ember 50% robot)
+	11.-Ã‰pÃ­tÅ‘ipari komplexum  (50% ember 50% robot)
 
-Mozgó egységek
+	
+
+
+MozgÃ³ egysÃ©gek
 	Nem Harci:
-		1.Termelõk  (emberek)
-		2.Építõk (emberek)
-		3.Építõk (gépek)
+		1.TermelÅ‘k  (emberek)
+		2.Ã‰pÃ­tÅ‘k (emberek)
+		3.Ã‰pÃ­tÅ‘k (gÃ©pek)
 	Harci:
-		1.Gyalogság
+		1.GyalogsÃ¡g
 		2.Tankok
-		3.Vadászgépek
-		4.Harci Drónok
-		5.Rakéta
+		3.VadÃ¡szgÃ©pek
+		4.Harci DrÃ³nok
+		5.RakÃ©ta
 
 
 
-2.tudományos szinten megszûnik a bank , mert beleintegrálódik a központba
-Az egyetem összeintegrálódik a kutatóintézettel
-Atomreaktor helyett Megújúló(zöld) energiareaktor lesz.
-Épületek:
-	1.központ.
-	2.Oktatási és kutatási központ
-	3.üzletház
-	4.  2-es szintû Lakóház 3000 fõ
-	5.-mezõgazdasági Feldolgozó üzem  (20% ember 80% robot)
-	6.-építõipari komplexum  (20% ember 80% robot)
-	7.-gyár és javítóüzem  (civil közlekedési eszköz) alkalmazottak: 10% ember 90% robot
-	8.-Katonai bázis  (gyalogság)
-	9.-Katonai bázis és repülõtér + javítóüzem  (nehéz fegyverek, vadászgép,tank, stb...)
-	10.-ZöldEnergia reaktor
-	11.-Újrahasznosító
+2.tudomÃ¡nyos szinten 
+Atomreaktor helyett MegÃºjÃºlÃ³(zÃ¶ld) energiareaktor lesz.
+Ã‰pÃ¼letek:
+	1. kÃ¶zpont.
+	2. 2-es szintÅ± LakÃ³hÃ¡z 3000 fÅ‘
+	3. Katonai bÃ¡zis 
+	4. Energiareaktor
+	5. ÃšjrahasznosÃ­tÃ³	
+	6. gyÃ¡r Ã©s javÃ­tÃ³Ã¼zem  (civil kÃ¶zlekedÃ©si eszkÃ¶z) alkalmazottak: 10% ember 90% robot	
+	7. Kereskedelmi kÃ¶zpont	
+	8. Egyetem
+	9. KutatÃ³intÃ©zet
+	
+	10. -FeldolgozÃ³ Ã¼zem  (20% ember 80% robot)
+	11. -Ã©pÃ­tÅ‘ipari komplexum  (20% ember 80% robot)
+	
 
-Mozgó egységek:
+MozgÃ³ egysÃ©gek:
 	Nem Harci:
-		1.Termelõk  (emberek)
-		2.Építõk (emberek)
-		3.Építõk (gépek)
+		1.TermelÅ‘k  (emberek)
+		2.Ã‰pÃ­tÅ‘k (emberek)
+		3.Ã‰pÃ­tÅ‘k (gÃ©pek)
 	Harci:
 		1.Tankok
-		2.Vadászgépek
-		3.Harci Repülõ Drónok
-		4.Rakéta
-		5.SzoftverFejlesztõk
+		2.VadÃ¡szgÃ©pek
+		3.Harci RepÃ¼lÅ‘ DrÃ³nok
+		4.RakÃ©ta
+		5.SzoftverFejlesztÅ‘k
 
-A szoftverfejlesztõk a játékprogram jolly-joker ei. Csak 1-et tud lépni,viszont bármit megtudnak támadni
-(Akár a halálcsillagot is...)   
-Védekezni ellene csak szoftverfejlesztõkkel lehet.
+A szoftverfejlesztÅ‘k a jÃ¡tÃ©kprogram jolly-joker ei. Csak 1-et tud lÃ©pni,viszont bÃ¡rmit megtudnak tÃ¡madni
+(AkÃ¡r a halÃ¡lcsillagot is...)   
+VÃ©dekezni ellene csak szoftverfejlesztÅ‘kkel lehet.
 
 
-3.-ik tudományos szinten további épületek szûnnek meg
-	Épületek:
-		1.Központ	
-		2.3-as szintû lakóház  5000 Fõ
-		3.ÜzletKözpont
-		4.MI-programozó képzõ
-		5.Gyár és javítóüzem komplexum (alkalmazott:90% MI 10% ember)
-		6.Katonai bázis és Ûrhajóállomás
-		7.Fúziós energiareaktor
-		8.Újrahasznosító
+3.-ik tudomÃ¡nyos szint:
+	Ã‰pÃ¼letek:
+		1.KÃ¶zpont	
+		2.3-as szintÅ± lakÃ³hÃ¡z  5000 FÅ‘
+		3.Katonai bÃ¡zis Ã©s Å°rhajÃ³Ã¡llomÃ¡s
+		4.Energiareaktor  FÃºziÃ³s
+		5.ÃšjrahasznosÃ­tÃ³
+		
+		6. GyÃ¡r Ã©s javÃ­tÃ³Ã¼zem komplexum (alkalmazott:90% MI 10% ember)
+		7. Kereskedelmi kÃ¶zpont		
+		8. Egyetem   (nÃ©v: MI-programozÃ³ kÃ©pzÅ‘)
+		9. KutatÃ³intÃ©zet
+	
+		10. FeldolgozÃ³ Ã¼zem  (100% robot)
+	        11. -Ã©pÃ­tÅ‘ipari komplexum  (100% robot)
+				
+		
 
 	nem harci 
-		1.-MI feldolgozók
+		1.-MI feldolgozÃ³k
 	harci:
-		1.Szárazföldi harci robotok
-		2.Repülõ harci robotok
-		3.Szoftverfejlesztõk
+		1.SzÃ¡razfÃ¶ldi harci robotok
+		2.RepÃ¼lÅ‘ harci robotok
+		3.SzoftverfejlesztÅ‘k
 
 
-4.-ik tudományos szinten már csak 6 épület van és két mozgó egység .
-	Épületek:
-		1. Központ
-		2. 4-es szintû lakóház 10000 fõ
-		3. Gyár és antianyag elõállító
-		4. Teleportáló és Csillagkapu
-		5. Bolygóközi energiareaktor 
-		6. HalálCsillag
+4.-ik tudomÃ¡nyos szint:
+	Ã‰pÃ¼letek:
+		1. KÃ¶zpont
+		2. 4-es szintÅ± lakÃ³hÃ¡z 10000 fÅ‘
+		3. Katonai bÃ¡zis Ã©s Å°rhajÃ³Ã¡llomÃ¡s
+		4. BolygÃ³kÃ¶zi energiareaktor 
+		5. ÃšjrahasznosÃ­tÃ³
+		6. GyÃ¡r Ã©s javÃ­tÃ³Ã¼zem antianyag elÅ‘Ã¡llÃ­tÃ³
+		7. Kereskedelmi kÃ¶zpont  (BolygÃ³kÃ¶zi kereskedelem)
+ 		8. Egyetem   (nÃ©v: MI-programozÃ³ kÃ©pzÅ‘)
+		9. KutatÃ³intÃ©zet (Csillagkapu)	
+		10. FeldolgozÃ³ Ã¼zem   "NyersanyagelÅ‘Ã¡llÃ­tÃ³"
+		11. HalÃ¡lCsillag  
 
-Mozgó egységek:
+MozgÃ³ egysÃ©gek:
 	nem harci 
-		1.-MI feldolgozók
+		1.-MI feldolgozÃ³k
 	harci
-		1.-Szoftverfejlesztõk
+		1.-SzoftverfejlesztÅ‘k
 
 
-Megvalósíthatóság.
-A program megvalósíthatósága négy részbõl áll :
+MegvalÃ³sÃ­thatÃ³sÃ¡g.
+A program megvalÃ³sÃ­thatÃ³sÃ¡ga nÃ©gy rÃ©szbÅ‘l Ã¡ll :
 
-az elsõ rész az elõbb felsorolt egységek objektumként való leimplementálása konkrét mezõikkel.
-Mindegyik objektumhoz tartozna egy kis ikonszerû kép,amit le lehet tölteni internetrõl vagy megrajzolni.
-Második rész: Menu kialakítása.Épületek ,egységek elhelyezése ,mozgatása, mozgathatósága a játéktéren (griden)  
-Harmadik rész: Hogyan változzanak az egységek paraméterei a NextTurn gombra való kattintás után.   
-Negyedik rész: Stratégia harc és az ellenfél (MI) megvalósítása
+az elsÅ‘ rÃ©sz az elÅ‘bb felsorolt egysÃ©gek objektumkÃ©nt valÃ³ leimplementÃ¡lÃ¡sa konkrÃ©t mezÅ‘ikkel.
+Mindegyik objektumhoz tartozna egy kis ikonszerÅ± kÃ©p,amit le lehet tÃ¶lteni internetrÅ‘l vagy megrajzolni.
+MÃ¡sodik rÃ©sz: Menu kialakÃ­tÃ¡sa.Ã‰pÃ¼letek ,egysÃ©gek elhelyezÃ©se ,mozgatÃ¡sa, mozgathatÃ³sÃ¡ga a jÃ¡tÃ©ktÃ©ren (griden)  
+Harmadik rÃ©sz: Hogyan vÃ¡ltozzanak az egysÃ©gek paramÃ©terei a NextTurn gombra valÃ³ kattintÃ¡s utÃ¡n.   
+Negyedik rÃ©sz: StratÃ©gia harc Ã©s az ellenfÃ©l (MI) megvalÃ³sÃ­tÃ¡sa
 
-A projekt Visual Studio 2013 segítségével készül C# programozási nyelven.
-A program felülete a Visual Studio 2013 Windows Foundation Presentation (WPF) környezetben készül,
-annak általános felületi eszközeit használva.
+A projekt Visual Studio 2013 segÃ­tsÃ©gÃ©vel kÃ©szÃ¼l C# programozÃ¡si nyelven.
+A program felÃ¼lete a Visual Studio 2013 Windows Foundation Presentation (WPF) kÃ¶rnyezetben kÃ©szÃ¼l,
+annak Ã¡ltalÃ¡nos felÃ¼leti eszkÃ¶zeit hasznÃ¡lva.
 
 
 
-A program tervezett felépítése fejlesztõi szempontból:
+A program tervezett felÃ©pÃ­tÃ©se fejlesztÅ‘i szempontbÃ³l:
 
-A program struktúráját tekintve három fõ csomagból áll.
+A program struktÃºrÃ¡jÃ¡t tekintve hÃ¡rom fÅ‘ csomagbÃ³l Ã¡ll.
 
-1. Megjelenés.   
+1. MegjelenÃ©s.   
 
-BoardPiece (egységek)
-Board (osztály Grid)
+BoardPiece (egysÃ©gek)
+Board (osztÃ¡ly Grid)
 
 
 player class 
-	 mezõk:
-	-pénz: továbbiakban (G)
-	-lakosság: továbbiakban (L) 
-	-szennyezõdés: továbbiakban (S)
-	-energia: továbbiakban (E)
-	-tudománypont: továbbiakban (T)
-	-termelés:továbbiakban (P)  
-	-Haderõ:továbbiakban (H) egységek sebzési erejének összege
+	 mezÅ‘k:
+	-pÃ©nz: tovÃ¡bbiakban (G)
+	-lakossÃ¡g: tovÃ¡bbiakban (L) 
+	-szennyezÅ‘dÃ©s: tovÃ¡bbiakban (S)
+	-energia: tovÃ¡bbiakban (E)
+	-tudomÃ¡nypont: tovÃ¡bbiakban (T)
+	-termelÃ©s:tovÃ¡bbiakban (P)  
+	-HaderÅ‘:tovÃ¡bbiakban (H) egysÃ©gek sebzÃ©si erejÃ©nek Ã¶sszege
 
-	függvények:
-		-Egy függvény növelné/csökkentené (L)-t minden (TB) megnyomásakor.
+	fÃ¼ggvÃ©nyek:
+		-Egy fÃ¼ggvÃ©ny nÃ¶velnÃ©/csÃ¶kkentenÃ© (L)-t minden (TB) megnyomÃ¡sakor.
 
-összelehet vonni az egységeket.
-
-
-MozgóEgységek õsosztály
-	-élet/pajzs 
-	-mozgás nagysága
-	-építési költség 1x-er vonódik le a (G)-bõl
-	-amortizációs költség: Minden TB megnyomásakor (G)-1
-
-harci egységek gyermekosztály
-	-sebzési erõ
-mozgó nem harci egységek gyermekosztály 
-	-építési gyorsaság
+Ã¶sszelehet vonni az egysÃ©geket.
 
 
-Épület õsosztály
-	-építési költség:  1x-er vonódik le a (G)-bõl
-	-amortizációs költség:  Minden TB megnyomásakor (G)-1
-	-szennyezõdés: Minden TB megnyomásakor (S)+1
-	-energia : Minden TB megnyomásakor (E)-1
-Épület gyermekosztályok:
+MozgÃ³EgysÃ©gek Å‘sosztÃ¡ly
+	-Ã©let/pajzs 
+	-mozgÃ¡s nagysÃ¡ga
+	-Ã©pÃ­tÃ©si kÃ¶ltsÃ©g 1x-er vonÃ³dik le a (G)-bÅ‘l
+	-amortizÃ¡ciÃ³s kÃ¶ltsÃ©g: Minden TB megnyomÃ¡sakor (G)-1
 
--központ
+harci egysÃ©gek gyermekosztÃ¡ly
+	-sebzÃ©si erÅ‘
+mozgÃ³ nem harci egysÃ©gek gyermekosztÃ¡ly 
+	-Ã©pÃ­tÃ©si gyorsasÃ¡g
+
+
+Ã‰pÃ¼let Å‘sosztÃ¡ly
+	-Ã©pÃ­tÃ©si kÃ¶ltsÃ©g:  1x-er vonÃ³dik le a (G)-bÅ‘l
+	-amortizÃ¡ciÃ³s kÃ¶ltsÃ©g:  Minden TB megnyomÃ¡sakor (G)-1
+	-szennyezÅ‘dÃ©s: Minden TB megnyomÃ¡sakor (S)+1
+	-energia : Minden TB megnyomÃ¡sakor (E)-1
+Ã‰pÃ¼let gyermekosztÃ¡lyok:
+
+-kÃ¶zpont
 
 -bank
-  pénz kereskedés
+  pÃ©nz kereskedÃ©s
 -egyetem
  (T) +1 
-MI programozó képzõ
+MI programozÃ³ kÃ©pzÅ‘
 (T)+1
--kutatóintézet
+-kutatÃ³intÃ©zet
  (T)+1
--üzletház
-(G)+1 kereskedéstõl függõen
--1-es szintû lakóház  1000 fõ
--2-es szintû lakóház  3000 fõ
--3-as szintû lakóház  6000 fõ
--4-es szintû lakóház 10000 fõ
--mezõgazdasági Feldolgozó üzem
+-Ã¼zlethÃ¡z
+(G)+1 kereskedÃ©stÅ‘l fÃ¼ggÅ‘en
+-1-es szintÅ± lakÃ³hÃ¡z  1000 fÅ‘
+-2-es szintÅ± lakÃ³hÃ¡z  3000 fÅ‘
+-3-as szintÅ± lakÃ³hÃ¡z  6000 fÅ‘
+-4-es szintÅ± lakÃ³hÃ¡z 10000 fÅ‘
+-mezÅ‘gazdasÃ¡gi FeldolgozÃ³ Ã¼zem
 (P)+1
--építõipari komplexum  
+-Ã©pÃ­tÅ‘ipari komplexum  
 
--gyár és javítóüzem  (civil közlekedési eszköz)
+-gyÃ¡r Ã©s javÃ­tÃ³Ã¼zem  (civil kÃ¶zlekedÃ©si eszkÃ¶z)
 (P)+1
--Katonai bázis  (gyalogság)
+-Katonai bÃ¡zis  (gyalogsÃ¡g)
 
--Katonai bázis és repülõtér + javítóüzem  (nehéz fegyverek, vadászgép,tank, stb...)
+-Katonai bÃ¡zis Ã©s repÃ¼lÅ‘tÃ©r + javÃ­tÃ³Ã¼zem  (nehÃ©z fegyverek, vadÃ¡szgÃ©p,tank, stb...)
 
-.-Atomerõmû
+.-AtomerÅ‘mÅ±
 (E)+10
 -Nap Reaktor
 (E)+10
--Fúziós reaktor
+-FÃºziÃ³s reaktor
 (E)+100
-.-Bolygóközi energiareaktor
+.-BolygÃ³kÃ¶zi energiareaktor
 (E)+100000 
--Újrahasznosító
+-ÃšjrahasznosÃ­tÃ³
 (S)-10
 -Csillagkapu 1
 
 NextTurn gomb 
 
-2. Események
+2. EsemÃ©nyek
 
 3.
 
 ...
-folyt köv
+folyt kÃ¶v
  
