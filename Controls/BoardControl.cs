@@ -9,6 +9,8 @@
 using System;
 using System.Windows.Input;
 using gameproject.Models;
+using System.Windows.Controls;
+using System.Windows;
 
 namespace gameproject.Controls
 {
@@ -17,57 +19,60 @@ namespace gameproject.Controls
 	/// </summary>
 	public class BoardControl
 	{
-		Board board;
-		public BoardControl()
+		public Board board;
+        public Window window;
+		public BoardControl(ScrollViewer field)
 		{
-			board=new Board(viewer,30,140,140);
+            window = new Window();
+			board=new Board(field, 30,140,140);
+            FillGrid();
 		}
 		
-		public void fillGrid()
+		public void FillGrid()
         {
             BorderGrid g = new BorderGrid();
             g.IsHitTestVisible = true;
-            for (int i = 0; i < Width; i++)
+            for (int i = 0; i < board.Width; i++)
             {
                 ColumnDefinition c = new ColumnDefinition();
-                c.Width = new GridLength(GridSize, GridUnitType.Pixel);
+                c.Width = new GridLength(board.GridSize, GridUnitType.Pixel);
                 g.ColumnDefinitions.Add(c);
-                for (int j = 0; j < Height; j++)
+                for (int j = 0; j < board.Height; j++)
                 {
                     if (i == 0)
                     {
                         RowDefinition r = new RowDefinition();
-                        r.Height = new GridLength(GridSize, GridUnitType.Pixel);
+                        r.Height = new GridLength(board.GridSize, GridUnitType.Pixel);
                         g.RowDefinitions.Add(r);
 
                     }
                 }
             }
-            Field.Content = g;
+            board.Viewer.Content = g;
         }
-		public void zoomHandler(object sender, MouseWheelEventArgs e)
+		public void ZoomHandler(object sender, MouseWheelEventArgs e)
         {
-            double z = GridSize;
-            double ox = Field.HorizontalOffset + (Global.Window.ActualWidth/2);
-            double oy = Field.VerticalOffset + (Global.Window.ActualHeight/2);
+            double z = board.GridSize;
+            double ox = board.Viewer.HorizontalOffset + (window.ActualWidth/2);
+            double oy = board.Viewer.VerticalOffset + (window.ActualHeight/2);
             
             e.Handled = true;
 
-            
-            GridSize += (byte)(Math.Sign(e.Delta) * 10);
-            GridSize = (byte)(Math.Min(Math.Max((int)GridSize, 10), 80));
-            foreach (var item in (Field.Content as Grid).ColumnDefinitions)
+
+            board.GridSize += (byte)(Math.Sign(e.Delta) * 10);
+            board.GridSize = (byte)(Math.Min(Math.Max((int)board.GridSize, 10), 80));
+            foreach (var item in (board.Viewer.Content as Grid).ColumnDefinitions)
             {
-                item.Width = new GridLength(GridSize, GridUnitType.Pixel);
+                item.Width = new GridLength(board.GridSize, GridUnitType.Pixel);
             }
-            foreach (var item in (Field.Content as Grid).RowDefinitions)
+            foreach (var item in (board.Viewer.Content as Grid).RowDefinitions)
             {
-                item.Height = new GridLength(GridSize, GridUnitType.Pixel);
+                item.Height = new GridLength(board.GridSize, GridUnitType.Pixel);
             }
 
-            z = GridSize / z;
-            Field.ScrollToHorizontalOffset(ox * z - (Global.Window.ActualWidth / 2));
-            Field.ScrollToVerticalOffset(oy * z - (Global.Window.ActualHeight / 2));
+            z = board.GridSize / z;
+            board.Viewer.ScrollToHorizontalOffset(ox * z - (window.ActualWidth / 2));
+            board.Viewer.ScrollToVerticalOffset(oy * z - (window.ActualHeight / 2));
         }
 		
 	}

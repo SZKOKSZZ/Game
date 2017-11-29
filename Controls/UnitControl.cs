@@ -16,12 +16,11 @@ using gameproject.Models;
 
 namespace gameproject.Controls
 {
-
-	public class UnitControl:BoardControl
+    public class UnitControl:BoardControl
 	{
 		Unit unit;
-		public UnitControl()
-		{
+		public UnitControl(ScrollViewer field) : base(field)
+        {
 			unit = new Unit();
 		}
 		public void dragTriggerDown(object sender, MouseButtonEventArgs e)
@@ -29,7 +28,7 @@ namespace gameproject.Controls
 			if (e.MiddleButton == MouseButtonState.Pressed)
 			{
 				unit.drag = true;
-				unit.dragPoint = new Point(e.GetPosition(Field).X, e.GetPosition(Field).Y);
+				unit.dragPoint = new Point(e.GetPosition(board.Viewer).X, e.GetPosition(board.Viewer).Y);
 			}
 		}
 		public void dragTriggerUp(object sender, MouseButtonEventArgs e)
@@ -43,43 +42,43 @@ namespace gameproject.Controls
 		{
 			if (!unit.drag)
 				return;
-			ScrollViewer field = (Field.Parent as ScrollViewer);
-			Point m = new Point(e.GetPosition(Field).X, e.GetPosition(Field).Y);
-			Field.ScrollToVerticalOffset(Field.VerticalOffset + (unit.dragPoint.Y - m.Y));
-			Field.ScrollToHorizontalOffset(Field.HorizontalOffset + (unit.dragPoint.X - m.X));
+			ScrollViewer field = (board.Viewer.Parent as ScrollViewer);
+			Point m = new Point(e.GetPosition(board.Viewer).X, e.GetPosition(board.Viewer).Y);
+            board.Viewer.ScrollToVerticalOffset(board.Viewer.VerticalOffset + (unit.dragPoint.Y - m.Y));
+            board.Viewer.ScrollToHorizontalOffset(board.Viewer.HorizontalOffset + (unit.dragPoint.X - m.X));
 			unit.dragPoint = new Point(m.X, m.Y);
 		}
 		public void moveCancel(object sender, MouseButtonEventArgs e)
-		{
+		{   
 			//MessageBox.Show("SWAG-YOLO");
-			if (Selected == null)
+			if (board.Unitp == null)
 				return;
-			Selected.Icon.Fill = Global.Players[0].Color;
+            board.Unitp.Cell.Fill = Brushes.Aquamarine;
 			movePathClear();
-			Selected = null;
+            board.Unitp = null;
 		}
 		public void movePathClear()
 		{
-			foreach (var item in Path)
+			foreach (var item in board.CellsPath)
 			{
-				(Field.Content as Grid).Children.Remove(item);
+				(board.Viewer.Content as Grid).Children.Remove(item);
 			}
-			Path.Clear();
+			board.CellsPath.Clear();
 		}
 		public void movePathDraw(object sender, MouseEventArgs e)
 		{
-			if (Selected == null)
+			if (board.Unitp == null)
 				return;
 
-			int x = (int)(e.GetPosition(Field).X + Field.HorizontalOffset);
-			int y = (int)(e.GetPosition(Field).Y + Field.VerticalOffset);
-			x = (x / GridSize) - Grid.GetColumn(Selected.Icon);
-			y = (y / GridSize) - Grid.GetRow(Selected.Icon);
+			int x = (int)(e.GetPosition(board.Viewer).X + board.Viewer.HorizontalOffset);
+			int y = (int)(e.GetPosition(board.Viewer).Y + board.Viewer.VerticalOffset);
+			x = (x / board.GridSize) - Grid.GetColumn(board.Unitp.Cell);
+			y = (y / board.GridSize) - Grid.GetRow(board.Unitp.Cell);
 
 			movePathClear();
 
-			int xPos = Grid.GetColumn(Selected.Icon);
-			int yPos = Grid.GetRow(Selected.Icon);
+			int xPos = Grid.GetColumn(board.Unitp.Cell);
+			int yPos = Grid.GetRow(board.Unitp.Cell);
 			int step = 0;
 			Rectangle r;
 			while (x != 0 || y != 0)
@@ -102,7 +101,7 @@ namespace gameproject.Controls
 				r.RadiusX = step;
 				//Panel.SetZIndex(r,-1);
 
-				if (step < Selected.Step)
+				if (step < board.Unitp.Step)
 				{
 					r.Fill = Brushes.Green;
 					r.MouseLeftButtonDown += moveUnit;
@@ -114,16 +113,16 @@ namespace gameproject.Controls
 
 				//r.MouseRightButtonDown += moveCancel;
 
-				Path.Add(r);
-				(Field.Content as Grid).Children.Add(r);
+				board.CellsPath.Add(r);
+				(board.Viewer.Content as Grid).Children.Add(r);
 			}
-			if (step == 0 || step > Selected.Step)
+			if (step == 0 || step > board.Unitp.Step)
 				return;
-			r = Path[Path.Count - 1];
+			r = board.CellsPath[board.CellsPath.Count - 1];
 			Unit u = null;
-			foreach (BoardPiece item in Global.Board.Instances)
+			foreach (BoardPiece item in board.boardPieces)
 			{
-				if (Grid.GetColumn(item.Icon) == Grid.GetColumn(r) && Grid.GetRow(item.Icon) == Grid.GetRow(r))
+				if (Grid.GetColumn(item.Cell) == Grid.GetColumn(r) && Grid.GetRow(item.Cell) == Grid.GetRow(r))
 				{
 					if (item is Building)
 					{
@@ -135,45 +134,47 @@ namespace gameproject.Controls
 			}
 			if (u == null)
 				return;
-			this.Point = u;
-			r.MouseLeftButtonDown -= moveUnit;
-			r.OpacityMask = u.Icon.OpacityMask;
+            //
+            board.Unitp = u;
+            //
+            r.MouseLeftButtonDown -= moveUnit;
+			r.OpacityMask = u.Cell.OpacityMask;
 			r.Margin = new Thickness(1, 1, 1, 1);
 			r.Opacity = 0.4;
 
-			if (u.Owner == Global.Players[0])
-			{
-				if (Selected.ID == u.ID)
-				{
-					r.Fill = Brushes.White;
-					r.MouseLeftButtonDown += interactReunite;
-				}
-			} else
-			{
-				r.Fill = Brushes.White;
-				r.MouseLeftButtonDown += interactAttack;
-			}           
+			//if (u.Owner == Global.Players[0])
+			//{
+			//	if (Selected.ID == u.ID)
+			//	{
+			//		r.Fill = Brushes.White;
+			//		r.MouseLeftButtonDown += interactReunite;
+			//	}
+			//} else
+			//{
+			//	r.Fill = Brushes.White;
+			//	r.MouseLeftButtonDown += interactAttack;
+			//}           
 		}
 
 		public void moveUnit(object sender, MouseButtonEventArgs e)
 		{
 			Rectangle s = (sender as Rectangle);
-			Unit unit1 = Selected;
+			Unit unit1 = board.Unitp;
 
-			if (Split > 0)
+			if (board.Split > 0)
 			{
-				Unit unit2 = new Unit(unit1.Owner, unit1.ID, Split);
-				unit2.setPosition(Grid.GetColumn(unit1.Icon), Grid.GetRow(unit1.Icon));
+				Unit unit2 = new Unit();
+				unit2.SetPosition(Grid.GetColumn(unit1.Cell), Grid.GetRow(unit1.Cell));
 				unit2.Step = unit1.Step;
-				unit1.Count -= Split;
-				unit2.setToolTip();
+				unit1.Count -= board.Split;
+				unit2.SetToolTip();
 			}
 			int x1 = Grid.GetColumn(s), y1 = Grid.GetRow(s);
 
 			unit1.Step -= (int)s.RadiusX + 1;
-			unit1.setPosition(x1, y1);
+			unit1.SetPosition(x1, y1);
 
-			unit1.setToolTip();
+			unit1.SetToolTip();
 			moveCancel(null, null);
 		}
         
