@@ -33,19 +33,17 @@ kerülhet, de az elképzelés az, hogy minden tudományos szinten más épülete
 pénzügyi helyzettől és egyéb paraméterektől függően.
 
 --- A felhasználó a játék kezdetekor az 1. tudományos szinten van, ahol a következő épületeket rakhatja le:
-	1.-központ
-	2.-bank
-	3.-egyetem
-	4.-kutatóintézet
-	5.-üzletház
-	6.-1-es szintű lakóház (1000 fő)
-	7.-mezőgazdasági feldolgozó üzem (50% ember 50% robot)
-	8.-építőipari komplexum  (50% ember 50% robot)
-	9.-gyár és javítóüzem  (civil közlekedési eszköz) alkalmazottak: 50% ember 50% robot
-	10.-Katonai bázis (gyalogság)
-	11.-Katonai bázis (nehézfegyverzet) (nehéz fegyverek, vadászgép,tank, stb...)
-	12.-Atomerőmű
-	13.-Újrahasznosító
+	1.-Központ
+ 	2.-1-es szintű lakóház (1000 fő)
+ 	3.-Katonai bázis 
+ 	4.-Energia Reaktor (Atomerőmű)
+ 	5.-Újrahasznosító	
+ 	6.-Gyár és javítóüzem  (civil közlekedési eszköz) alkalmazottak: 50% ember 50% robot	
+ 	7.-Kereskedelmi központ
+ 	8.-Egyetem
+ 	9.-Kutatóintézet	
+ 	10.-Mezőgazdasági feldolgozó üzem  (50% ember 50% robot)
+ 	11.-Építőipari komplexum  (50% ember 50% robot)
 
 Mozgó egységek
 	Nem Harci:
@@ -158,4 +156,37 @@ mezők:
  -> Atomerőmű és Nap Reaktor (+10E), Fúziós reaktor (+100E), Bolygóközi energiareaktor (+100000E), 
  -> Újrahasznosító (10 egységgel csökkenti a szennyeződést)
  
- ESEMÉNYEK: folyt. köv.
+Ezeken felül az alkalmazás "tulajdonságainak" felvázolásánál a következőket határoztuk meg:
+- alapmechanika funkciói: 
+	>egységek kijelölése
+	>egységek mozgatás, összevonása, szétszedése
+	>látótér mozgatása
+- következő kör gomb:
+	>player függvények lefutnak (pénz, népesség stb.)
+	>ellenfél lépéseinek szimulálása
+	? (kör végén felugrik egy ablak ami összegzi a történteket) ?
+- harc megvalósulása:
+	közelharci: egy mezőre való lépéskor történne meg: az erősebb egység marad a griden
+	távolsági: ??
+- Adatbázis: 
+	-Egységek (id, név, ikon, cost, lépésszáméleterő, sebzés)
+	-Épületek (id, név, ikon méret, cost, units_number, unit1_id, unit2_id...)
+
+...
+
+6) ÁRAJÁNLAT
+
+Tájékoztatjuk, hogy a SZKOKSZZ Corporation a stratégiai játék elkészítésére adott specifikációk elfogadásást követően, az 
+elkészítés 3 hónaposra ütemezett folyamatára vonatkozólag az alábbi tájékoztató jellegű árajánlatot adja meg Tajti Tibor részére:
+
+Mivel 3 fős junior programozócsapatunk egy egyetemi tárgy keretében szabadítja szellemi termékét a világra, a projekt árát az
+adott tantárgy kreditértékében határozzuk meg. Ebőől következően a 'Rendszerfejlesztés technológiája' tárgy 2 kreditpontja lebontva a 
+fejenként belefektetendő körülbelül 40 órányi munkaidőre: 
+
+0,05 KREDIT / ÓRA
+
+Szállítási határidő: 2017. december vége
+Fizetés: Vizsgaidőszakban
+Mellékletek: - követelmény és funkcionális specifikáció
+- 2 darab rövid megbeszélési jegyzőkönyv
+- tesztelési terv
