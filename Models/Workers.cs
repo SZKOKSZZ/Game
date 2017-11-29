@@ -50,7 +50,7 @@ namespace gameproject.Models
             if (Owner == null)
                 textBlock.Inlines.Add(new Run("\n" + "Cost: " + cost + "$"));
             toolTip = textBlock;
-            cell.ToolTip = toolTip;
+            Cell.ToolTip = toolTip;
         }
 
     }

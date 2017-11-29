@@ -11,17 +11,19 @@ namespace gameproject.Models
 {
     public abstract class BoardPiece
     {
+        
         protected int id;
         protected string name;
         protected int cost;
         protected int amortization;
         protected int maintenanceCost;
         protected BitmapImage ImageSource;
-        protected TextBlock toolTip;
-        protected Rectangle cell;
+        protected TextBlock toolTip;      
+        abstract public Rectangle Cell { get; set; }
 
         public abstract void SetToolTip();
-
+        public abstract void SetPosition(int x, int y);
+        public abstract void SetSize(int width, int height);
 
     }
 }

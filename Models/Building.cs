@@ -12,6 +12,17 @@ namespace gameproject.Models
     public class Building:BoardPiece
     {
         public int[] BuildArray { get; set; }
+        public override Rectangle Cell { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+
+        public override void SetPosition(int x, int y)
+        {
+            throw new NotImplementedException();
+        }
+
+        public override void SetSize(int width, int height)
+        {
+            throw new NotImplementedException();
+        }
 
         public override void SetToolTip()
         {

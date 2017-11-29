@@ -7,8 +7,10 @@
  * To change this template use Tools | Options | Coding | Edit Standard Headers.
  */
 using System;
+using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Shapes;
 
 namespace gameproject.Models
 {
@@ -23,8 +25,11 @@ namespace gameproject.Models
 		public int Width { get; set; }
 		public Unit Unitp { get; set; }
 		public ScrollViewer Viewer { get; set; }
+        public List<Rectangle> CellsPath { get; set; }
+        public List<BoardPiece> boardPieces;
+        public int Split { get; set; }
 
-		public Board(ScrollViewer viewer, byte gridsize,int width, int height)
+        public Board(ScrollViewer viewer, byte gridsize,int width, int height)
 		{
 			Viewer =viewer;
             Width = width;

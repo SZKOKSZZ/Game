@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace gameproject.Models
 {
-    class Factory
+    public class Factory : Building
     {
     }
 }

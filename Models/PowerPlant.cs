@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace gameproject.Models
 {
-   public class PowerPlant
+   public class PowerPlant:Building
     {
 
     }
