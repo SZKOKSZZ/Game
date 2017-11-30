@@ -93,7 +93,7 @@
                             <Path
                           x:Name="Arrow"
                           Grid.Column="1"    
-                          Fill="{TemplateBinding Foreground}"
+                          Fill="White"
                           Stroke="{TemplateBinding Foreground}"
                           HorizontalAlignment="Center"
                           VerticalAlignment="Center"
@@ -117,9 +117,9 @@
         </ControlTemplate>
 
         <Style TargetType="{x:Type ComboBox}">
-            <Setter Property="Foreground" Value="White" />
+            <Setter Property="Foreground" Value="Transparent" />
             <Setter Property="BorderBrush" Value="Gray" />
-            <Setter Property="Background" Value="DimGray" />
+            <Setter Property="Background" Value="Transparent" />
             <Setter Property="SnapsToDevicePixels" Value="true"/>
             <Setter Property="OverridesDefaultStyle" Value="true"/>
             <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Auto"/>
@@ -172,7 +172,7 @@
             </Setter>
             <Style.Triggers>
                 <Trigger Property="IsMouseOver" Value="True">
-                    <Setter Property="Background" Value="Gray"/>
+                    <Setter Property="Background" Value="Transparent"/>
                 </Trigger>
             </Style.Triggers>
         </Style>

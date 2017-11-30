@@ -50,7 +50,7 @@ namespace _project
             Player cpu2 = new Player(Brushes.Plum);
 
             Unit u;
-            u = new Unit(human, 0, 10); u.setPosition(5, 2);
+            u = new Worker(human, 1, 10); u.setPosition(5, 2);
             u = new Unit(human, 0, 10); u.setPosition(4, 4);
             u = new Unit(cpu, 0, 12); u.setPosition(8, 4);
 
@@ -95,7 +95,7 @@ namespace _project
         {
 
         }
-        public void setPosition(int x, int y)
+        public virtual void setPosition(int x, int y)
         {
             Grid.SetColumn(Icon, x);
             Grid.SetRow(Icon, y);
@@ -170,6 +170,27 @@ namespace _project
             this.ToolTip = tt;
             Icon.ToolTip = this.ToolTip;
         }
+    }
+
+    public class Worker : Unit
+    {
+        ComboBox Type;
+        public Worker(Player player, int id, int count) : base(player, id, count) 
+        {
+            Type = new ComboBox();
+            Type.VerticalAlignment = VerticalAlignment.Bottom;
+            (Global.Board.Field.Content as Grid).Children.Add(Type);
+            Type.Items.Add("0120312412");
+            Type.Items.Add("12301301224123012");
+            Type.Margin = new Thickness(0, 0, 0, 0);
+        }
+
+        public override void setPosition(int x, int y)
+        {
+            base.setPosition(x, y);
+            Grid.SetColumn(Type, x);
+            Grid.SetRow(Type, y);
+        } 
     }
 
     public class Building : BoardPiece

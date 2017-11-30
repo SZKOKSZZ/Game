@@ -1,2 +1,3 @@
 //id name icon cost STEP HP DMG 
+1;Worker;u01.png;1;5;1;1;
 0;Tank;u00.png;10;6;4;2;
