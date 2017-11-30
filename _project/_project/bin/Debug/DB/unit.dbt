@@ -1,2 +1,13 @@
 //id name icon cost STEP HP DMG 
-0;Tank;u00.png;10;6;4;2;
+0;Tank;u00.png;10;4;5;3;
+0;Infantry;u01.png;10;3;3;2;
+0;Fighter;u02.png;10;7;4;4;
+0;Drone;u03.png;10;5;3;3;
+0;Missile;u04.png;10;10;5;7;
+0;Software Engineer;u05.png;10;4;7;5;
+0;Robot;u06.png;10;5;6;4;
+0;Flying Robot;u07.png;10;7;6;5;
+0;Worker;u08.png;10;3;1;0;
+0;Builder;u09.png;10;3;1;0;
+0;Machine Builder;u10.png;10;5;3;0;
+0;MI-Processor;u11.png;10;7;5;0;
