@@ -1,1 +1,78 @@
+I)	Bevezetés
+Ebben a fejezetben a tesztterv célja, hatóköre és felépítése található.
+
+1.1	Tesztelési terv hatóköre, célja 
+
+A tesztelési terv célja az órán előírt tesztelés biztosítása, a tesztelés során alkalmazott eljárások és megoldások meghatározásával.
+A teszt végrehajtásáért a projektünk mindhárom tagja felel, és hajtja végre a 2. fejezetben meghatározott módon.
+
+1.2	Elvárások
+Az alábbi alap elvárások képezik ennek a teszttervnek az alapját:
+•	Az olvasó ismeri az alapdokumentumokat, amelyek meghatározzák a rendszert. 
+•	Az SZKOKSZZ projektcsapat felelős a tesztadatok előállításáért.  
+•	A tesztprogram az ebben a dokumentumban meghatározott tesztterv alapján fut. 
+
+II)
+Szükséges erőforrások
+
+Ez a fejezet a teszteléshez szükséges erőforrásokat fejti ki. 
+
+2.1	Feladatkörök és felelősségek (tesztcsapat meghatározása)
+
+_____
+
+2.2	Tesztkörnyezet
+
+Ebben a részben meg kell határozni, hogy a tesztelés milyen környezetben történjen (fejlesztői vagy tesztkörnyezet), a környezetek 
+hogyan érhetőek el, továbbá a tesztelők milyen hozzáféréssel végezzék a tesztelést.
+_______
+
+III)	Tesztelési terv
+Ez a fejezet leírja a teszt típusát, a metodológiáját és a riport készítés módszerét. Emellett meghatározza a teszt elvárásokat, a 
+teszt-esetek elvárt eredményeit, sikerességének kritériumait, a kockázatok kezelését és a hatáskörön kívül eseteket.
+
+3.a	Fejlesztői teszt
+
+A fejlesztői tesztelés célja a rendszer alapvető funkcióinak ellenőrzése, a hibakezelés és az alapvető funkciók működésének vizsgálata. 
+Módszere: _______
+
+3.b	Prototípus (modul) teszt
+
+A prototípustesztelés (vagy másik nevén modultesztelés) célja a rendszer már működő moduljainak önálló tesztelése, a modulon belüli 
+hibák azonosításának és kiküszöbölésének érdekében. Módszere:
+____
+
+3.2	Tesztelési feladatok, teszt-esetek leírása
+
+A tesztelési feladat a következő teszt-eseteket foglalja magában:
+	…
+	…
+
+3.3	Tesztelési ütemterv, függőségek – tesztforgatókönyv
+A teszt elvégzésének meghatározott sorrendjét és függőségeit tesztforgatókönyvben kell rögzíteni. A tesztforgatókönyv elkészítése a 
+tesztelések koordinálásért felelős szakértő feladata, elkészítése során törekedni kell a párhuzamos elvégezhető tevékenységek lehetőség 
+szerinti kihasználására, a tesztelési időigény csökkentésének érdekében. A tesztforgatókönyvben rögzíteni szükséges továbbá a tesztelés 
+sorrendjét és a tesztelés logikáját (funkciók vagy folyamatok alapján) is.
+_____
+
+IV)	Tesztelési jegyzőkönyv és tesztelési jelentés
+
+4.1	Tesztelési jegyzőkönyv
+
+A tesztelők a tesztforgatókönyvnek megfelelően elvégzik a tesztelést és az eredményt tesztjegyzőkönyvekben dokumentálják. A teszt 
+kimenetelést minden esetben jelenteni kell a tesztkoordinátornak (jelen esetben legyen ő eme dokumentáció írója). A tesztkoordinátor 
+a többiekkel együtt megoldást keres a problémákra, majd frissíti a tesztforgatókönyvet. Ha a problémát megoldották, a tesztelő 
+újrakezdheti a tesztelést, majd dokumentálja az eredményeket. 
+
+____
+
+4.2	Tesztelési jelentés
+
+A tesztelési jelentést a tesztkoordinátor készíti el. Ez egy részletes áttekintése a lefutott teszteknek, azok eredményeinek, 
+státuszának és a megjegyzéseknek. A tesztkoordinátor juttatja el a projektmenedzsernek a tesztelési jelentést. 
+
+____
+
+
+
 
