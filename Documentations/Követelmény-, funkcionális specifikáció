@@ -1,17 +1,21 @@
 1) MEGNEVEZÉS: 
+
 Körökre osztott stratégiai játék
 
 2) FEJLESZTŐI KÖRNYEZET: 
+
 A projekt Visual Studio 2013 segítségével készül C# programozási nyelven. A program felülete a Visual Studio 2013 
 Windows Foundation Presentation (WPF) környezetben készül, annak általános eszközeit használva.
 
 3) RÖVID LEÍRÁS: 
+
 a cél egy stratégiai, logikai játékprogram megalkotása, amelyben a játékosnak két lehetősége adódik a győzelemre: 
 - technikai győzelem: a játékos városának fejlesztésével eljut a legmagasabb fejlettségi szintre, megépít egy "végső ütőkártyát", melyel
 győzelemre viszi egységeit (technikai győzelem után van lehetőség folytani az ellenfél elpusztítását)
 - katonai győzelem: az ellenség egységeinek teljes megsemmisítése
 
 4) FUNKCIONÁLIS KÖVETELMÉNYEK:
+
 - a programot egy játékos játssza a gép ellen egy x*y-as négyzethálós griden
 - a játékos féltucatnyi "nyersanyag"-pontból gazdálkodhat, melyek körönkét folyamatosan változhatnak
 - a program a játéktér kezelése mellett ellátja az új játék, betöltés, mentés feladatokat. 
@@ -20,7 +24,8 @@ negyed év telik el
 - új egységek, épületek eléréséhez a játékosnak végig kell mennie bizonyos fejlettségi szinteken. Szintlépés után a játékos fő adatai 
 (összegyűjtőtt pénz, haderő, tudománypont) megmaradnak csak a grid ürül ki.
 
-MEGVALÓSÍTHATÓSÁG (4 rész): 
+MEGVALÓSÍTHATÓSÁG (4 részben): 
+
 I) az első rész az előbb felsorolt egységek objektumként való leimplementálása konkrét mezőikkel. Mindegyik objektumhoz tartozna egy 
 kis ikonszerű kép, amit le lehet tölteni internetről vagy megrajzolni.
 II) második rész: Menü kialakítása. Textúra: epületek, egységek elhelyezése, mozgatása, mozgathatósága a játéktéren (griden)  
@@ -28,6 +33,7 @@ III) harmadik rész: Hogyan változzanak az egységek paraméterei a "Next Turn"
 IV) negyedik rész: Harcmenet és az ellenfél mesterséges intelligienciájának megvalósítása
 
 5) RENDSZERTERV:
+
 Mint fentebb említésre került, a játékos a játék során 4 tudományos szinten menne végig. Ezen elképzelés a későbbiekben még átdolgozásra
 kerülhet, de az elképzelés az, hogy minden tudományos szinten más épületeket rakhatna le a játékos, és más mozgó egységeket kezelhet 
 pénzügyi helyzettől és egyéb paraméterektől függően.
@@ -125,7 +131,9 @@ Mozgó egységek:
 -----------------------------------------------------------
 
 OSZTÁLYTERV:
+
 A program felülete Windows Foundation Presentation (WPF) környezetben készül, egy x*y-as négyzethálós griden
+
 - BoardPiece osztály: egységek példányosítása
 - Board: osztály Grid (x*y négyzethálós felület)
 - Player osztály: a játékos "nyersanyagait" összefoglaló osztály, melyekből gazdálkodhat
@@ -133,6 +141,7 @@ a, mezők (zárójelben a továbbiakban használt jelölésük):
 	-pénz (G), lakosság (L), energia (E), tudománypont (T), termelés (P), szennyeződés (S), haderő (H)
 b, függvény: 	függvények:
 	-Egy függvény növelné/csökkentené (L)-t minden (TB) megnyomásakor. (?)
+
 - MozgóEgységek: ősosztály
 mezők: 	-élet/pajzs, mozgás nagyság, kiképzési költség 1x vonódik le a (G)-ből, amortizációs költség: Minden TB megnyomásakor (G)-1
 Az azonos fajtájú egységeket össze lehet majd vonni (pl. 6 és 4 egység tank egyesítést követően 10 egységként egyszerre mozgatható)
@@ -140,6 +149,7 @@ Az azonos fajtájú egységeket össze lehet majd vonni (pl. 6 és 4 egység tan
 	mező: sebzési erő
 -- Nem harci egységek: MozgóEgységek ősosztály gyermekosztálya
 	mező: produktivitás / építési gyorsaság
+
 - Épület ősosztály
 mezők: 
  -építési költség:  1x vonódik le a (G)-ből
