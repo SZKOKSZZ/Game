@@ -37,3 +37,9 @@ Fejlődés/szintlépés: Miként?
 Megjegyzések:
 A "Show Statistics" gombra kattintva vagy a játék végén egy egyszerű grafikon készül a Stat osztályból (új ablak).
 Az Adatbázis lehet egy sima text file (akkor viszont fontos a mezők sorrendje).
+
+- képek feltöltése az adatbázisba: ha az épületek összes megjelenését nézzük, akkor 30 darab van belőlük, ezekben benne vannak egy 
+adott épülettípus különböző szintjei is (1-es szintű lakóház, 2-es szintá lakóház, stb...), azonban az interneten nincs ennyi ikonkép,
+valamint ha lenne sem tűnnének egységesnek kinézet szempontjából. Azt javaslom egy úpülettípus végig csak egyetlen icon-t használjon, 
+és a szintváltás a kurzor rávitelekor legyen jelezve
+
