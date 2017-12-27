@@ -8,5 +8,8 @@ namespace _project.game
 {
     public class Economy
     {
+
+
+
     }
 }

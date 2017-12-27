@@ -15,7 +15,8 @@ namespace _project.DataBase
         public void readUnit(Unit u, int id)
         {
             StreamReader fin = new StreamReader(Directory.GetCurrentDirectory() + @"\DB\unit.dbt");
-            string[] str; bool res; int ind = -1;
+            string[] str; 
+bool res; int ind = -1;
             do
             {
                 str = fin.ReadLine().Split(';');
@@ -47,7 +48,7 @@ namespace _project.DataBase
             b.Name = str[1];
             if (!File.Exists(Directory.GetCurrentDirectory() + @"\icons\" + str[2])) b.Icon.OpacityMask = new ImageBrush { ImageSource = new BitmapImage(new Uri(Directory.GetCurrentDirectory() + @"\icons\error.png")) };
             else b.Icon.OpacityMask = new ImageBrush { ImageSource = new BitmapImage(new Uri(Directory.GetCurrentDirectory() + @"\icons\" + str[2])) };
-            b.Cost = int.Parse(str[4]);
+            b.cost = int.Parse(str[4]);
             b.setSize(int.Parse(str[3]), int.Parse(str[3]));
 
             b.buildArray = new int[int.Parse(str[5])];

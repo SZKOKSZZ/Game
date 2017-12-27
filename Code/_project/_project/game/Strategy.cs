@@ -19,5 +19,6 @@ namespace _project.game
         public static Grid Grid;
         public static TextBlock StatusBar;
         public static Window Window;
+
     }
 }

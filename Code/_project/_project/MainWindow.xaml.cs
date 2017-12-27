@@ -45,14 +45,38 @@ namespace _project
         {
             Player human = new Player(Brushes.LightSkyBlue); human.setMoney(1000);
             Player cpu = new Player(Brushes.GreenYellow);
-
             Unit u;
-            u = new Worker(human, 1, 10); u.setPosition(5, 2);
-            u = new Unit(human, 0, 10); u.setPosition(4, 4);
-            u = new Unit(cpu, 0, 12); u.setPosition(8, 4);
+            u = new Worker(human, 1, 10);
+            u.setPosition(5, 2);
+            u = new Unit(human, 0, 10);
+            u.setPosition(4, 4);
+            u = new Unit(cpu, 0, 12);
+            u.setPosition(8, 4);
 
-            Building b;
-            b = new Building(human, 0); b.setPosition(7, 2);
+            CenterBuilding cen= new CenterBuilding(human, 0);
+            cen.setPosition(1, 2);
+            ConstructionPlant con= new ConstructionPlant(human, 0);
+            con.setPosition(1, 3);
+            CommercialArea com= new CommercialArea(human, 0);
+            com.setPosition(1, 4);
+            Factory fac= new Factory(human, 0);
+            com.setPosition(1, 5);
+            HousingEstate hou= new HousingEstate(human, 0);
+            hou.setPosition(1, 6);
+            MilitaryBase mil= new MilitaryBase(human, 0);
+            mil.setPosition(1, 7);
+
+            ProcessingPlant pro = new ProcessingPlant(human,0);
+            pro.setPosition(1, 9);
+
+            RecyclingCenter rec = new RecyclingCenter(human, 0);
+            rec.setPosition(2, 8);
+
+            ResearchCenter res = new ResearchCenter(human,0);
+            res.setPosition(5, 6);
+
+            ScienceCenter sci = new ScienceCenter(human, 0);
+            sci.setPosition(8, 8);
         }
 
         private void btn_nextRound_Click(object sender, RoutedEventArgs e)
@@ -60,7 +84,7 @@ namespace _project
             foreach (var item in Strategy.Board.Instances)
             {
                 if (item is Unit) (item as Unit).Step = (item as Unit).StepMax;
-                item.setToolTip();
+                item.SetToolTip();
             }
             MessageBox.Show("All steps has been reset.");
         }

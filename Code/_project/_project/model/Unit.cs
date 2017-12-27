@@ -10,9 +10,14 @@ namespace _project.model
 {
     public class Unit : BoardPiece
     {
-        public int Step; public int ID;
-        public int Count, StepMax, Damage, Health;
-        public string Name; public int Cost;
+        public int Step;
+        public int ID;
+        public int Count;
+        public int StepMax;
+        public int Damage;
+        public int Health;
+        public string Name;
+        public int Cost;
 
         public Unit(Player player, int id, int count)
         {
@@ -57,13 +62,29 @@ namespace _project.model
             TextBlock tt = new TextBlock();
             tt.Inlines.Clear();
             if (Owner == null)
-                tt.Inlines.Add(new Run(Name) { Foreground = Brushes.White });
-            else { tt.Inlines.Add(new Run(Name) { Foreground = Owner.UserColor }); tt.Inlines.Add(new Run(" x" + Count)); }
-            if (Owner == Strategy.Players[0]) tt.Inlines.Add(new Run("\n" + "👣 " + Step + "/" + StepMax));
-            else tt.Inlines.Add(new Run("\n" + "👣 " + StepMax));
+                tt.Inlines.Add(new Run(Name)
+                {
+                    Foreground = Brushes.White
+                });
+            else
+            {
+                tt.Inlines.Add(new Run(Name)
+                {
+                    Foreground = Owner.UserColor
+                });
+                tt.Inlines.Add(new Run(" x" + Count));
+            }
+            if (Owner == Strategy.Players[0])
+                tt.Inlines.Add(new Run("\n" + "👣 " + Step + "/" + StepMax));
+            else
+                tt.Inlines.Add(new Run("\n" + "👣 " + StepMax));
             tt.Inlines.Add(new Run("\n" + "🛡 " + Health));
-            tt.Inlines.Add(new Run("\n" + "⚔ " + Damage) { Foreground = Brushes.White });
-            if (Owner == null) tt.Inlines.Add(new Run("\n" + "Cost: " + Cost + "$"));
+            tt.Inlines.Add(new Run("\n" + "⚔ " + Damage)
+            {
+                Foreground = Brushes.White
+            });
+            if (Owner == null)
+                tt.Inlines.Add(new Run("\n" + "Cost: " + Cost + "$"));
             this.toolTip = tt;
             Icon.ToolTip = this.toolTip;
         }

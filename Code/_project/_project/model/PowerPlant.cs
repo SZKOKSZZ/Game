@@ -18,7 +18,7 @@ namespace _project.model
             string projectpath = System.IO.Path.GetDirectoryName(System.IO.Path.GetDirectoryName(System.IO.Directory.GetCurrentDirectory()));
             b.Icon.OpacityMask = new ImageBrush
             {
-                ImageSource = new BitmapImage(new Uri(projectpath + @"\images\construction.png"))
+                ImageSource = new BitmapImage(new Uri(projectpath + @"\images\powerplant.png"))
             };
             b.Name = "PowerPlant";
             b.buildArray = new int[3];
