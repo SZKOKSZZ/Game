@@ -8,6 +8,7 @@ namespace _project.game
 {
     public class Economy
     {
+        Random rnd = new Random();
 
 
 
