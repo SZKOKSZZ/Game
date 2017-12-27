@@ -1,48 +1,49 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using _project.game;
+using _project.model;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Documents;
+using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Shapes;
 
 namespace gameproject.Models
 {
-    public class RecyclingCenter:Building
+    public class RecyclingCenter : Building
     {
-        public class CenterBuilding:Building
-    {
+        public RecyclingCenter(Player player, int id) : base(player, id)
+        {
+        }
         public override void SetToolTip()
         {
-            public string BuildingName { get; set; }
-            
             TextBlock textBlock = new TextBlock();
             textBlock.Inlines.Clear();
-            
+
             if (Owner == null)
             {
-                textBlock.Inlines.Add(new Run(name)
+                textBlock.Inlines.Add(new Run(Name)
                 {
                     Foreground = Brushes.White
                 });
             }
-            
+
             else
             {
-                textBlock.Inlines.Add(new Run(name)
+                textBlock.Inlines.Add(new Run(Name)
                 {
                     Foreground = Owner.UserColor
                 });
-                textBlock.Inlines.Add(new Run(" x" + Count));
+                //textBlock.Inlines.Add(new Run(" x" + Count));
             }
-            
+
             textBlock.Inlines.Add(new Run("\n" + "🛡" + amortization));
             textBlock.Inlines.Add(new Run("\n" + "🛡" + maintenanceCost));
-            textBlock.Inlines.Add(new Run("\n" + "🛠" + BuildingName));
+            textBlock.Inlines.Add(new Run("\n" + "🛠" + Name));
 
             if (Owner == null)
                 textBlock.Inlines.Add(new Run("\n" + "Cost: " + cost + "$"));
             toolTip = textBlock;
-            Cell.ToolTip = toolTip;
+            Icon.ToolTip = toolTip;
         }
-    }
     }
 }
