@@ -7,52 +7,84 @@ using System.Windows;
 
 namespace _project.game
 {
-    public enum materials { gold, silver,diamond,iron,}  //stb...
+    public enum materials { gold, silver, diamond, iron, food }  //stb...
     public class Economy
     {
-        public int Turn { get; set; }
         Random rnd = new Random();
+        public int Money { get; set; }
+        public int Population { get; set; }
+
+        public int Pollution { get; set; }
+        public int Energy { get; set; }
+        public int Science { get; set; }
+        public int Production { get; set; }
+        public int ArmyPower { get; set; }
+        public int Turn { get; set; }
         public materials mat;
+
+        public Economy()
+        {
+            SetMoney(10);
+            SetPopulation(954);
+        }
 
         public void GenerateMaterial()
         {
-            int random = rnd.Next(1, 100);          
-            if(random<2)
+            int random = rnd.Next(1, 100);
+            if (0 < random && random < 2)
             {
                 mat = materials.diamond;
                 MessageBox.Show("your found diamond!!!!");
-                GetMoney(100000);
+                SetMoney(100000);
             }
-            else if (random < 10)
+            else if (2 < random && random < 10)
             {
                 mat = materials.gold;
                 MessageBox.Show("your found gold!!!");
-                GetMoney(1000);
+                SetMoney(1000);
             }
-            else if (random < 15)
+            else if (10 < random && random < 25)
             {
                 mat = materials.silver;
                 MessageBox.Show("your found silver!!");
-                GetMoney(100);
+                SetMoney(100);
             }
-            else if (random < 20)
+            else if (25 < random && random < 45)
             {
                 mat = materials.iron;
                 MessageBox.Show("your found iron!");
-                GetMoney(10);
+                SetMoney(10);
             }
-            else { MessageBox.Show("your found nothing! sorry!"); }
+            else if (45 < random && random < 99)
+            {
+                mat = materials.food;
+                MessageBox.Show("your found food!");
+                SetMoney(1);
+            }
+            else
+            {
+                MessageBox.Show("your found nothing! sorry!");
+            }
             //
             //...
         }
 
-        public int GetMoney(int found)
+        public void SetMoney(int money)
         {
-
-            return found;
+            Money = Money + money;
+            Strategy.StatusBar.Text = "Global Money: " + Money.ToString() + " $ ";
+        }
+        public void SetPopulation(int pop)
+        {
+            Population = Population + pop;
+            Strategy.StatusBar.Text = Strategy.StatusBar.Text + "Population: " + Population.ToString() + " f ";
         }
 
-        
+
+
+         
+      
+
 
 
     }
