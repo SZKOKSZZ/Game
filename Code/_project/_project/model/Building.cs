@@ -20,22 +20,10 @@ namespace _project.model
             Owner = player;
             Icon.Fill = player.UserColor;
             Icon.Margin = new Thickness(1, 1, 1, 1);
-            SetToolTip();
-
             (Strategy.Board.Field.Content as Grid).Children.Add(Icon);
             Strategy.Board.Instances.Add(this);
-
-            if (player == Strategy.Players[0]) Icon.MouseLeftButtonDown += buildingSelect;
-        }
-
-        public override void SetToolTip()
-        {
-            TextBlock tt = new TextBlock();
-            tt.Inlines.Clear();
-            if (Owner == null) { tt.Inlines.Add(new Run(Name) { Foreground = Brushes.White }); tt.Inlines.Add(new Run("\n" + "Cost: " + cost + "$")); }
-            else tt.Inlines.Add(new Run(Name) { Foreground = Owner.UserColor });
-            this.toolTip = tt;
-            Icon.ToolTip = this.toolTip;
+            if (player == Strategy.Players[0])
+                Icon.MouseLeftButtonDown += buildingSelect;
         }
         void buildingSelect(object sender, MouseButtonEventArgs e)
         {
@@ -77,5 +65,33 @@ namespace _project.model
             }
             Strategy.Board.Field.PreviewMouseDown -= panelRemove;
         }
+
+        public void SetToolTipBuilding(string Name, int cost, int maintenanceCost, int amortization)
+        {
+            TextBlock textBlock = new TextBlock();
+            textBlock.Inlines.Clear();
+            if (Owner == null)
+            {
+                textBlock.Inlines.Add(new Run(Name)
+                {
+                    Foreground = Brushes.White
+                });
+            }
+            else
+            {
+                textBlock.Inlines.Add(new Run(Name)
+                {
+                    Foreground = Owner.UserColor
+                });
+            }
+            textBlock.Inlines.Add(new Run("\n" + "Cost:" + cost));
+            textBlock.Inlines.Add(new Run("\n" + "mCost:" + maintenanceCost));
+            textBlock.Inlines.Add(new Run("\n" + "amortization:" + amortization));
+            if (Owner == null)
+                textBlock.Inlines.Add(new Run("\n" + "Cost: " + cost + "$"));
+            toolTip = textBlock;
+            Icon.ToolTip = toolTip;
+        }
+
     }
 }

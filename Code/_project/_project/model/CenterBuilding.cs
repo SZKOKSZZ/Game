@@ -13,6 +13,7 @@ namespace _project.model
 {
     public class CenterBuilding : Building
     {
+        public string bName { get; set; }
         public void SetBuilding(Building b, int id)
         {
             string projectpath = System.IO.Path.GetDirectoryName(System.IO.Path.GetDirectoryName(System.IO.Directory.GetCurrentDirectory()));
@@ -20,52 +21,22 @@ namespace _project.model
             {
                 ImageSource = new BitmapImage(new Uri(projectpath+@"\images\center.png"))
             };
-            b.Name = "Center";
+            b.Name = "CenterBuilding";
             b.buildArray = new int[3];
             b.cost = 1000;
+            b.maintenanceCost = 10;
+            b.amortization = 50;
             b.setSize(1, 1);
             for (int i = 0; i < 3; i++)
             {
                 b.buildArray[i] = 3;
             }
+            SetToolTipBuilding(b.Name,b.cost,b.maintenanceCost,b.amortization);
         }
-
-
         public CenterBuilding(Player player, int id) : base(player, id)
         {
             SetBuilding(this, id);
-        }
-
-        public override void SetToolTip()
-        {
-            TextBlock textBlock = new TextBlock();
-            textBlock.Inlines.Clear();
-
-            if (Owner == null)
-            {
-                textBlock.Inlines.Add(new Run(Name)
-                {
-                    Foreground = Brushes.White
-                });
-            }
-
-            else
-            {
-                textBlock.Inlines.Add(new Run(Name)
-                {
-                    Foreground = Owner.UserColor
-                });
-                //textBlock.Inlines.Add(new Run(" x" + Count));
-            }
-
-            textBlock.Inlines.Add(new Run("\n" + "🛡" + amortization));
-            textBlock.Inlines.Add(new Run("\n" + "🛡" + maintenanceCost));
-            textBlock.Inlines.Add(new Run("\n" + "🛠" + Name));
-
-            if (Owner == null)
-                textBlock.Inlines.Add(new Run("\n" + "Cost: " + cost + "$"));
-            toolTip = textBlock;
-            Icon.ToolTip = toolTip;
+            
         }
     }
 }
