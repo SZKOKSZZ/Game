@@ -20,6 +20,9 @@ namespace _project
 {
     public partial class MainWindow : Window
     {
+
+        Player human;
+
         public MainWindow()
         {
             InitializeComponent();
@@ -40,10 +43,10 @@ namespace _project
             Strategy.StatusBar = txt_stats;
             Strategy.Window = this;
         }
-
+        
         private void initalizing()
         {
-            Player human = new Player(Brushes.LightSkyBlue); human.setMoney(1000);
+            human = new Player(Brushes.LightSkyBlue);
             Player cpu = new Player(Brushes.GreenYellow);
             Unit u;
             u = new Worker(human, 1, 10);
@@ -53,26 +56,26 @@ namespace _project
             u = new Unit(cpu, 0, 12);
             u.setPosition(8, 4);
 
-            CenterBuilding cen= new CenterBuilding(human, 0);
+            CenterBuilding cen = new CenterBuilding(human, 0);
             cen.setPosition(1, 2);
-            ConstructionPlant con= new ConstructionPlant(human, 0);
+            ConstructionPlant con = new ConstructionPlant(human, 0);
             con.setPosition(1, 3);
-            CommercialArea com= new CommercialArea(human, 0);
+            CommercialArea com = new CommercialArea(human, 0);
             com.setPosition(1, 4);
-            Factory fac= new Factory(human, 0);
+            Factory fac = new Factory(human, 0);
             com.setPosition(1, 5);
-            HousingEstate hou= new HousingEstate(human, 0);
+            HousingEstate hou = new HousingEstate(human, 0);
             hou.setPosition(1, 6);
-            MilitaryBase mil= new MilitaryBase(human, 0);
+            MilitaryBase mil = new MilitaryBase(human, 0);
             mil.setPosition(1, 7);
 
-            ProcessingPlant pro = new ProcessingPlant(human,0);
+            ProcessingPlant pro = new ProcessingPlant(human, 0);
             pro.setPosition(1, 9);
 
             RecyclingCenter rec = new RecyclingCenter(human, 0);
             rec.setPosition(2, 8);
 
-            ResearchCenter res = new ResearchCenter(human,0);
+            ResearchCenter res = new ResearchCenter(human, 0);
             res.setPosition(5, 6);
 
             ScienceCenter sci = new ScienceCenter(human, 0);
@@ -81,12 +84,17 @@ namespace _project
 
         private void btn_nextRound_Click(object sender, RoutedEventArgs e)
         {
+            human.economy.Turn++;
+            if (human.economy.Turn % 5 == 0)
+            {
+                human.economy.GenerateMaterial();
+            }
+
             foreach (var item in Strategy.Board.Instances)
             {
                 if (item is Unit) (item as Unit).Step = (item as Unit).StepMax;
                 item.SetToolTip();
-            }
-            MessageBox.Show("All steps has been reset.");
+            }        
         }
     }
 }
