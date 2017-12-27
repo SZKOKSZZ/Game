@@ -10,18 +10,13 @@ namespace _project.model
 {
     public class Building : BoardPiece
     {
-        public string Name;
-        public int ID;
         public int[] buildArray;
-        public int Cost;
 
-
-
-        public Building(Player player, int id)
+        public Building(Player player, int ID)
         {
             Icon = new Rectangle();
-            Strategy.Database.readBuilding(this, id);
-            ID = id;
+            //Strategy.Database.readBuilding(this, id);
+            id = ID;
             Owner = player;
             Icon.Fill = player.UserColor;
             Icon.Margin = new Thickness(1, 1, 1, 1);
@@ -37,40 +32,41 @@ namespace _project.model
         {
             TextBlock tt = new TextBlock();
             tt.Inlines.Clear();
-            if (Owner == null) { tt.Inlines.Add(new Run(Name) { Foreground = Brushes.White }); tt.Inlines.Add(new Run("\n" + "Cost: " + Cost + "$")); }
+            if (Owner == null) { tt.Inlines.Add(new Run(Name) { Foreground = Brushes.White }); tt.Inlines.Add(new Run("\n" + "Cost: " + cost + "$")); }
             else tt.Inlines.Add(new Run(Name) { Foreground = Owner.UserColor });
-            this.ToolTip = tt;
-            Icon.ToolTip = this.ToolTip;
+            this.toolTip = tt;
+            Icon.ToolTip = this.toolTip;
         }
         void buildingSelect(object sender, MouseButtonEventArgs e)
         {
-            Border b = new Border();
-            b.BorderThickness = new Thickness(0, 1, 1, 0);
-            b.Margin = new Thickness(0, 0, 0, -1);
-            b.BorderBrush = Brushes.DarkGray;
-            b.HorizontalAlignment = HorizontalAlignment.Left;
-            b.VerticalAlignment = VerticalAlignment.Bottom;
-            b.Background = Brushes.DimGray;
-            Grid.SetRow(b, 0);
+            Border border = new Border();
+            border.BorderThickness = new Thickness(0, 1, 1, 0);
+            border.Margin = new Thickness(0, 0, 0, -1);
+            border.BorderBrush = Brushes.DarkGray;
+            border.HorizontalAlignment = HorizontalAlignment.Left;
+            border.VerticalAlignment = VerticalAlignment.Bottom;
+            border.Background = Brushes.DimGray;
+            Grid.SetRow(border, 0);
 
-            Grid g = new Grid(); b.Child = g;
-            g.Height = 42;
+            Grid grid = new Grid();
+            border.Child = grid;
+            grid.Height = 42;
 
-            Unit u;
+            Unit unit;
             for (int i = 0; i < buildArray.Length; i++)
             {
-                ColumnDefinition c = new ColumnDefinition();
-                c.Width = new GridLength(g.Height, GridUnitType.Pixel);
-                g.ColumnDefinitions.Add(c);
+                ColumnDefinition column = new ColumnDefinition();
+                column.Width = new GridLength(grid.Height, GridUnitType.Pixel);
+                grid.ColumnDefinitions.Add(column);
 
-                u = new Unit(null, 8, 0);
-                u.setPosition(i, 1);
-                g.Children.Add(u.Icon);
+                unit = new Unit(null, 8, 0);
+                unit.setPosition(i, 1);
+                grid.Children.Add(unit.Icon);
             }
 
 
-            b.Name = "unitsArray";
-            Strategy.Grid.Children.Add(b);
+            border.Name = "unitsArray";
+            Strategy.Grid.Children.Add(border);
             Strategy.Board.Field.PreviewMouseDown += panelRemove;
         }
         void panelRemove(object sender, MouseButtonEventArgs e)

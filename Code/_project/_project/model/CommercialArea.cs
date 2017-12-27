@@ -1,19 +1,39 @@
 ﻿using _project.game;
 using _project.model;
+using System;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
+using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace gameproject.Models
+namespace _project.model
 {
     public class CommercialArea : Building
     {
+        public void SetBuilding(Building b, int id)
+        {
+            string projectpath = System.IO.Path.GetDirectoryName(System.IO.Path.GetDirectoryName(System.IO.Directory.GetCurrentDirectory()));
+            b.Icon.OpacityMask = new ImageBrush
+            {
+                ImageSource = new BitmapImage(new Uri(projectpath + @"\images\commercial.png"))
+            };
+            b.Name = "Commercial";
+            b.buildArray = new int[3];
+            b.cost = 1000;
+            b.setSize(1, 1);
+            for (int i = 0; i < 3; i++)
+            {
+                b.buildArray[i] = 3;
+            }
+        }
         public CommercialArea(Player player, int id) : base(player, id)
         {
+            SetBuilding(this, id);
         }
+
         public override void SetToolTip()
         {
             TextBlock textBlock = new TextBlock();

@@ -64,8 +64,8 @@ namespace _project.model
             tt.Inlines.Add(new Run("\n" + "🛡 " + Health));
             tt.Inlines.Add(new Run("\n" + "⚔ " + Damage) { Foreground = Brushes.White });
             if (Owner == null) tt.Inlines.Add(new Run("\n" + "Cost: " + Cost + "$"));
-            this.ToolTip = tt;
-            Icon.ToolTip = this.ToolTip;
+            this.toolTip = tt;
+            Icon.ToolTip = this.toolTip;
         }
     }
 }

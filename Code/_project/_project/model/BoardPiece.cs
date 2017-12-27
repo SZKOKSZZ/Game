@@ -10,7 +10,7 @@ namespace _project.model
     {
 
         public int id;
-        public string name;
+        public string Name;
         public int cost;
         public int amortization;
         public int maintenanceCost;

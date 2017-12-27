@@ -6,7 +6,8 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Shapes;
-namespace gameproject.Models
+
+namespace _project.model
 {
     public class PowerPlant : Building
     {
