@@ -16,7 +16,7 @@ namespace _project.model
         public int StepMax;
         public int Damage;
         public int Health;
-        public string Name;
+        public string UnitName;
         public int Cost;
 
         public Unit(Player player, int id, int count)
@@ -62,13 +62,13 @@ namespace _project.model
             TextBlock tt = new TextBlock();
             tt.Inlines.Clear();
             if (Owner == null)
-                tt.Inlines.Add(new Run(Name)
+                tt.Inlines.Add(new Run(UnitName)
                 {
                     Foreground = Brushes.White
                 });
             else
             {
-                tt.Inlines.Add(new Run(Name)
+                tt.Inlines.Add(new Run(UnitName)
                 {
                     Foreground = Owner.UserColor
                 });
