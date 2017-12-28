@@ -43,7 +43,7 @@ namespace _project
             Strategy.StatusBar = txt_stats;
             Strategy.Window = this;
         }
-        
+
         private void initalizing()
         {
             human = new Player(Brushes.LightSkyBlue);
@@ -89,12 +89,12 @@ namespace _project
             {
                 human.economy.GenerateMaterial();
             }
-
+            human.economy.PopulationGrowth();
             foreach (var item in Strategy.Board.Instances)
             {
                 if (item is Unit) (item as Unit).Step = (item as Unit).StepMax;
                 item.SetToolTip();
-            }        
+            }
         }
     }
 }
