@@ -29,6 +29,8 @@ namespace _project.game
         {
             population = new List<Human>();
             SetMoney(10);
+
+            //Kezdetben 100 fő 18 éves lány és 100 fő 18 éves fiú összeeresztve:
             for (int i = 0; i < 100; i++)
             {
                 Male male = new Male(18);
