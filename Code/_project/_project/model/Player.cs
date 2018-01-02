@@ -11,10 +11,12 @@ namespace _project.model
     public class Player
     {
         public SolidColorBrush UserColor;
+        public Economy economy;
         int Money;
 
         public Player(SolidColorBrush color)
         {
+            economy = new Economy();
             UserColor = color;
             Money = 0;
             Strategy.Players.Add(this);
