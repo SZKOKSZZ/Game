@@ -81,7 +81,7 @@ namespace _project
             ScienceCenter sci = new ScienceCenter(human, 0);
             sci.setPosition(8, 8);
         }
-
+        
         private void btn_nextRound_Click(object sender, RoutedEventArgs e)
         {
             human.economy.Turn++;
